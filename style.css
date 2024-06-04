@@ -1,163 +1,72 @@
-html, body {
-    font-family: 'Catamaran', sans-serif;
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    letter-spacing: 0.3px;
-}
-
-a {
-    text-decoration: none;
-}
-
-.main-container {
-    display: flex;
-}
-
-.sidebar {
-    width: 50%;
-    color: #efefef;
-    height: 100%;
-    text-align: center;
-    position: fixed;
-    overflow: hidden;
-    background-color: #121212;
-}
-
-.sidebar .bg-img {
-    background: url('headshot1-bw.png') center center no-repeat;
-    background-size: cover;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.sidebar .bg-img:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: #185a9d;
-    background-image: linear-gradient(to left top, #43cea2, #185a9d);
-    opacity: 0.85;
-}
-
-.left-inner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    padding: 50px;
-    position: relative;
-    z-index: 1;
-}
-
-.info {
-    color: #fff;
-    text-align: center;
-}
-
-.name {
-    font-weight: 500;
-    font-size: 2em;
-}
-
-.subtext, .jobStatus {
-    margin: 10px 0;
-    font-weight: 300;
-}
-
-.social-links {
-    margin-top: 30px;
-}
-
-.social-links .fa {
-    margin: 10px;
-    font-size: 24px;
-    color: #fff;
-}
-
-@media screen and (max-width: 1000px) {
-    .sidebar {
-        width: 100%;
-        position: static;
-        height: auto;
-    }
-    .content {
-        margin-left: 0;
-    }
-}
-
-.content {
-    width: 50%;
-    margin-left: 50%;
-    padding: 50px;
-    background-color: #fff;
-    overflow-y: auto;
-}
-
-h2 {
-    font-size: 2em;
-    margin-bottom: 20px;
-}
-
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
-}
-
-.skill-item {
-    background: #1c1c1c;
-    padding: 20px;
-    border: 1px solid #333;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    text-align: center;
-}
-
-.skill-bar {
-    position: relative;
-    height: 25px;
+    background-color: #f5f5f5;
+    color: #333;
+  }
+  
+  header {
     background-color: #333;
-    border-radius: 5px;
-    overflow: hidden;
-    margin-top: 10px;
-}
-
-.skill-level {
-    height: 100%;
-    background-color: #6200ea;
-    border-radius: 5px;
-    text-align: right;
-    padding-right: 5px;
-    color: white;
-    line-height: 25px;
-}
-
-.experience-item {
-    background: #1c1c1c;
+    color: #fff;
     padding: 20px;
-    border: 1px solid #333;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    margin-bottom: 20px;
-}
-
-html {
-    cursor: none;
-}
-
-.cursor {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0) 70%);
-    position: absolute;
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    mix-blend-mode: difference;
-    z-index: 10;
-}
+    text-align: center;
+  }
+  
+  h1 {
+    margin: 0;
+    font-size: 36px;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  nav ul li {
+    display: inline;
+    margin-right: 10px;
+  }
+  
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  section {
+    margin-bottom: 30px;
+  }
+  
+  h2 {
+    color: #333;
+    font-size: 24px;
+  }
+  
+  footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  footer a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  #background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }

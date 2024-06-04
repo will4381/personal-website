@@ -1,32 +1,133 @@
 body {
-    font-family: 'Courier New', Courier, monospace;
-    background-color: #f0f0f0;
-    color: #000;
+    font-family: 'Arial', sans-serif;
+    background-color: #0a0a0a;
+    color: #e0e0e0;
     margin: 0;
-    padding: 20px;
+    padding: 0;
+    overflow-x: hidden;
 }
 
-.container {
-    max-width: 800px;
-    margin: auto;
-    background-color: #fff;
-    padding: 20px;
-    border: 2px solid #000;
+.main-container {
+    display: flex;
 }
 
-header, section, footer {
+.sidebar {
+    position: fixed;
+    width: 250px;
+    height: 100vh;
+    background-color: #121212;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+
+.sidebar h1 {
+    font-size: 2em;
+    color: #fff;
+}
+
+.contact-info {
+    font-size: 0.9em;
+    margin: 10px 0;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar nav ul li {
+    margin: 20px 0;
+}
+
+.sidebar nav ul li a {
+    color: #9c9c9c;
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+.sidebar nav ul li a:hover {
+    color: #fff;
+}
+
+.content {
+    margin-left: 250px;
+    padding: 20px;
+    flex-grow: 1;
+    position: relative;
+    z-index: 1;
+}
+
+section {
+    margin: 50px 0;
+}
+
+section h2 {
+    font-size: 2em;
     margin-bottom: 20px;
 }
 
-h1, h2, h3 {
-    color: #000;
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
 }
 
-a {
-    color: #00f;
-    text-decoration: none;
+.skill-item {
+    background: #1c1c1c;
+    padding: 20px;
+    border: 1px solid #333;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    text-align: center;
 }
 
-a:hover {
-    text-decoration: underline;
+.skill-bar {
+    position: relative;
+    height: 25px;
+    background-color: #333;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.skill-level {
+    height: 100%;
+    background-color: #6200ea;
+    border-radius: 5px;
+    text-align: right;
+    padding-right: 5px;
+    color: white;
+    line-height: 25px;
+}
+
+.experience-item {
+    background: #1c1c1c;
+    padding: 20px;
+    border: 1px solid #333;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    margin-bottom: 20px;
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+}
+
+html {
+    cursor: none;
+}
+
+.cursor {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0) 70%);
+    position: absolute;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    mix-blend-mode: difference;
+    z-index: 10;
 }

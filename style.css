@@ -1,5 +1,5 @@
 body {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'EB Garamond', serif;
     background-color: #f0f0f0;
     color: #000;
     margin: 0;
@@ -12,6 +12,8 @@ body {
     background-color: #fff;
     padding: 20px;
     border: 2px solid #000;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 header, section, footer {
@@ -20,13 +22,33 @@ header, section, footer {
 
 h1, h2, h3 {
     color: #000;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
 }
 
 a {
-    color: #00f;
+    color: #d40000;
     text-decoration: none;
 }
 
 a:hover {
     text-decoration: underline;
+}
+
+h1 {
+    font-size: 36px;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+h3 {
+    font-size: 20px;
+}
+
+p, ul {
+    font-size: 18px;
+    line-height: 1.6;
 }

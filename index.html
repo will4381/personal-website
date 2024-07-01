@@ -10,7 +10,7 @@
 
         :root {
             --bg-color: #0a1525;
-            --text-color: #ffffff;
+            --text-color: #e6e6e6;
             --secondary-color: #8892b0;
             --chip-color: #2a4a7f;
             --line-color: #1e3a5f;
@@ -33,20 +33,24 @@
 
         .container {
             display: flex;
+            justify-content: center;
             min-height: 100vh;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .left-column {
-            width: 350px;
+            width: 300px;
             padding: 40px;
             position: fixed;
             height: 100vh;
-            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
         }
 
         .right-column {
-            flex-grow: 1;
-            margin-left: 350px;
+            width: calc(100% - 300px);
+            margin-left: 300px;
             padding: 40px 40px 40px 80px;
             overflow-y: auto;
             height: 100vh;
@@ -69,10 +73,27 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul li a::before {
+            content: "";
+            display: inline-block;
+            width: 20px;
+            height: 1px;
+            background-color: var(--secondary-color);
+            margin-right: 10px;
+            transition: var(--transition);
         }
 
         nav ul li a:hover {
             color: var(--text-color);
+        }
+
+        nav ul li a:hover::before {
+            width: 30px;
+            background-color: var(--text-color);
         }
 
         h1 {
@@ -95,10 +116,9 @@
         }
 
         .social-links {
+            margin-top: auto;
             display: flex;
-            justify-content: center;
             gap: 1rem;
-            margin-top: 2rem;
         }
 
         .social-links a {
@@ -144,6 +164,11 @@
             margin-bottom: 0.5rem;
         }
 
+        .experience-item p {
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
         .tag {
             display: inline-block;
             background-color: var(--chip-color);
@@ -170,6 +195,16 @@
             background-color: var(--secondary-color);
         }
 
+        .spotlight {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
         @media (max-width: 768px) {
             .container {
                 flex-direction: column;
@@ -183,6 +218,7 @@
             }
 
             .right-column {
+                width: 100%;
                 margin-left: 0;
                 padding: 20px;
             }
@@ -198,6 +234,7 @@
     </style>
 </head>
 <body>
+    <div class="spotlight"></div>
     <div class="container">
         <div class="left-column">
             <h1>Will Kusch</h1>
@@ -211,8 +248,8 @@
                 </ul>
             </nav>
             <div class="social-links">
-                <a href="https://github.com/yourusername" title="GitHub" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://twitter.com/yourusername" title="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://github.com/will4381" title="GitHub" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://twitter.com/hella_kusch" title="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
                 <a href="https://www.linkedin.com/in/willkusch/" title="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
             </div>
         </div>
@@ -226,10 +263,7 @@
                 <div class="experience-item">
                     <h4>Lifeguard, Swim Instructor, Lifeguard Instructor</h4>
                     <p class="details">Gwinnett County Parks and Recreation, Lilburn, Georgia | May 2022 - Present</p>
-                    <ul>
-                        <li>Enforced safety protocols and monitored swimming area.</li>
-                        <li>Planned and conducted courses for lifeguard certification.</li>
-                    </ul>
+                    <p>Enforced safety protocols and monitored swimming area. Planned and conducted courses for lifeguard certification.</p>
                     <div>
                         <span class="tag">Safety Management</span>
                         <span class="tag">Instruction</span>
@@ -239,10 +273,7 @@
                 <div class="experience-item">
                     <h4>Co-Founder</h4>
                     <p class="details">Posteries, Atlanta, Georgia | August 2022 - February 2023</p>
-                    <ul>
-                        <li>Co-founded an entrepreneurial venture, focusing on financial management.</li>
-                        <li>Developed internal applications using no-code tools.</li>
-                    </ul>
+                    <p>Co-founded an entrepreneurial venture, focusing on financial management. Developed internal applications using no-code tools.</p>
                     <div>
                         <span class="tag">Entrepreneurship</span>
                         <span class="tag">Financial Management</span>
@@ -252,10 +283,7 @@
                 <div class="experience-item">
                     <h4>Head Coach / Manager</h4>
                     <p class="details">Gwinnett County Swim League, Lilburn, Georgia | April 2022 - August 2022</p>
-                    <ul>
-                        <li>Managed a team of 9 assistant coaches.</li>
-                        <li>Spearheaded interactions with parents and stakeholders.</li>
-                    </ul>
+                    <p>Managed a team of 9 assistant coaches. Spearheaded interactions with parents and stakeholders.</p>
                     <div>
                         <span class="tag">Team Management</span>
                         <span class="tag">Leadership</span>
@@ -265,10 +293,7 @@
                 <div class="experience-item">
                     <h4>Facilities Associate</h4>
                     <p class="details">Topgolf, Atlanta, Georgia | November 2021 - May 2022</p>
-                    <ul>
-                        <li>Ensured optimal facility efficiency and guest satisfaction.</li>
-                        <li>Collaborated with a multidisciplinary team of 12.</li>
-                    </ul>
+                    <p>Ensured optimal facility efficiency and guest satisfaction. Collaborated with a multidisciplinary team of 12.</p>
                     <div>
                         <span class="tag">Facility Management</span>
                         <span class="tag">Customer Service</span>
@@ -299,6 +324,11 @@
     </div>
 
     <script>
+    document.addEventListener('mousemove', (e) => {
+        const spotlight = document.querySelector('.spotlight');
+        spotlight.style.background = `radial-gradient(circle at ${e.clientX}px ${e.clientY}px, rgba(255, 255, 255, 0.03) 0%, rgba(10, 15, 28, 0) 60%)`;
+    });
+
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();

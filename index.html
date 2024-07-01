@@ -3,83 +3,314 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Will Kusch - Personal Website</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
+    <title>Will Kusch - Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+        :root {
+            --bg-color-1: #0a0f1c;
+            --bg-color-2: #1a2335;
+            --text-color: #ffffff;
+            --secondary-color: #8892b0;
+            --chip-color: #1e2a3e;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: linear-gradient(135deg, var(--bg-color-1) 0%, var(--bg-color-2) 100%);
+            min-height: 100vh;
+            display: flex;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px;
+            display: flex;
+        }
+
+        .left-column {
+            width: 300px;
+            padding-right: 40px;
+        }
+
+        .right-column {
+            flex-grow: 1;
+            overflow-y: auto;
+            max-height: calc(100vh - 80px);
+            padding-right: 20px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin-top: 2rem;
+        }
+
+        nav ul li {
+            margin-bottom: 1rem;
+        }
+
+        nav ul li a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover {
+            color: var(--text-color);
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+        }
+
+        p {
+            font-size: 1rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            position: fixed;
+            bottom: 40px;
+            left: 40px;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: #4a5568;
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            color: var(--text-color);
+        }
+
+        .spotlight {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        section {
+            margin-bottom: 3rem;
+        }
+
+        section h3 {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .experience-item, .project-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .experience-item h4, .project-item h4 {
+            color: var(--text-color);
+            font-weight: 400;
+            margin-bottom: 0.3rem;
+        }
+
+        .experience-item .details {
+            font-style: italic;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-item p, .project-item p {
+            margin-bottom: 0.5rem;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: var(--chip-color);
+            color: var(--text-color);
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-link {
+            display: inline-block;
+            background-color: var(--chip-color);
+            color: var(--text-color);
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .project-link:hover {
+            background-color: var(--secondary-color);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .left-column, .right-column {
+                width: 100%;
+                padding-right: 0;
+            }
+
+            .social-links {
+                position: static;
+                margin-top: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <div class="spotlight"></div>
     <div class="container">
-        <header>
+        <div class="left-column">
             <h1>Will Kusch</h1>
-            <p><a href="mailto:willkusch@icloud.com">willkusch@icloud.com</a> | <a href="https://www.linkedin.com/in/willkusch/">LinkedIn</a></p>
-        </header>
-        <section>
-            <h2>Education</h2>
-            <p>Georgia State University, Robinson College of Business, Atlanta, GA<br>
-            Bachelor of Business Administration, Accounting (August 2021 - May 2024)</p>
-        </section>
-        <section>
-            <h2>Certifications & Skills</h2>
-            <ul>
-                <li>Certified Lifeguard</li>
-                <li>Certified Water Safety Instructor</li>
-                <li>Certified Lifeguard Instructor</li>
-                <li>Microsoft Excel Associate</li>
-                <li>Microsoft PowerPoint Associate</li>
-                <li>Google Ads Certified Professional</li>
-                <li>Financial Analysis & Reporting</li>
-                <li>Managerial Accounting</li>
-                <li>Excel Proficiency</li>
-                <li>No-Code Tools</li>
-                <li>Team Management & Leadership</li>
-                <li>Problem-Solving</li>
-                <li>Written & Verbal Communication</li>
-                <li>Attention to Detail</li>
-                <li>R</li>
-                <li>Python</li>
-                <li>Tableau</li>
-            </ul>
-        </section>
-        <section>
-            <h2>Academic Projects</h2>
-            <p>Data Analytics Discovery Project (January 2024 - May 2024)</p>
-            <ul>
-                <li>Collaborated in a team of four to execute a semester-long data analysis project.</li>
-                <li>Played a pivotal role in reaching three major project milestones.</li>
-            </ul>
-        </section>
-        <section>
-            <h2>Experience</h2>
-            <h3>Gwinnett County Parks and Recreation, Lilburn, Georgia</h3>
-            <p>Lifeguard, Swim Instructor, Lifeguard Instructor (May 2022 - Present)</p>
-            <ul>
-                <li>Enforced safety protocols and monitored swimming area.</li>
-                <li>Planned and conducted courses for lifeguard certification.</li>
-            </ul>
-            <h3>Posteries, Atlanta, Georgia</h3>
-            <p>Co-Founder (August 2022 - February 2023)</p>
-            <ul>
-                <li>Co-founded an entrepreneurial venture, focusing on financial management.</li>
-                <li>Developed internal applications using no-code tools.</li>
-            </ul>
-            <h3>Gwinnett County Swim League, Lilburn, Georgia</h3>
-            <p>Head Coach / Manager (April 2022 - August 2022)</p>
-            <ul>
-                <li>Managed a team of 9 assistant coaches.</li>
-                <li>Spearheaded interactions with parents and stakeholders.</li>
-            </ul>
-            <h3>Topgolf, Atlanta, Georgia</h3>
-            <p>Facilities Associate (November 2021 - May 2022)</p>
-            <ul>
-                <li>Ensured optimal facility efficiency and guest satisfaction.</li>
-                <li>Collaborated with a multidisciplinary team of 12.</li>
-            </ul>
-        </section>
-        <footer>
-            <p>Entrepreneurial Experience: Co-founded and scaled a poster business, utilizing financial management skills.</p>
-            <p>Leadership Roles: Led a diverse team as Head Coach for a Summer Swim Team.</p>
-            <p>Technical Skills: Proficient in Microsoft Excel and PowerPoint, skilled in R and Python for data analytics.</p>
-        </footer>
+            <h2>Recent Graduate and Entrepreneur</h2>
+            <p>I build pixel-perfect, engaging, and accessible digital experiences. With a background in accounting and a passion for technology, I bring a unique perspective to every project.</p>
+            <nav>
+                <ul>
+                    <li><a href="#about">ABOUT</a></li>
+                    <li><a href="#experience">EXPERIENCE</a></li>
+                    <li><a href="#projects">PROJECTS</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="right-column">
+            <section id="about">
+                <h3>About Me</h3>
+                <p>I'm an accounting student at Georgia State University with a passion for data analytics, entrepreneurship, and technology. My diverse skill set spans from financial analysis to programming, and I'm always eager to take on new challenges.</p>
+            </section>
+
+            <section id="experience">
+                <h3>Experience</h3>
+                <div class="experience-item">
+                    <h4>Lifeguard, Swim Instructor, Lifeguard Instructor</h4>
+                    <p class="details">Gwinnett County Parks and Recreation, Lilburn, Georgia | May 2022 - Present</p>
+                    <ul>
+                        <li>Enforced safety protocols and monitored swimming area.</li>
+                        <li>Planned and conducted courses for lifeguard certification.</li>
+                    </ul>
+                    <div>
+                        <span class="tag">Safety Management</span>
+                        <span class="tag">Instruction</span>
+                        <span class="tag">Leadership</span>
+                    </div>
+                </div>
+                <div class="experience-item">
+                    <h4>Co-Founder</h4>
+                    <p class="details">Posteries, Atlanta, Georgia | August 2022 - February 2023</p>
+                    <ul>
+                        <li>Co-founded an entrepreneurial venture, focusing on financial management.</li>
+                        <li>Developed internal applications using no-code tools.</li>
+                    </ul>
+                    <div>
+                        <span class="tag">Entrepreneurship</span>
+                        <span class="tag">Financial Management</span>
+                        <span class="tag">No-Code Development</span>
+                    </div>
+                </div>
+                <div class="experience-item">
+                    <h4>Head Coach / Manager</h4>
+                    <p class="details">Gwinnett County Swim League, Lilburn, Georgia | April 2022 - August 2022</p>
+                    <ul>
+                        <li>Managed a team of 9 assistant coaches.</li>
+                        <li>Spearheaded interactions with parents and stakeholders.</li>
+                    </ul>
+                    <div>
+                        <span class="tag">Team Management</span>
+                        <span class="tag">Leadership</span>
+                        <span class="tag">Stakeholder Communication</span>
+                    </div>
+                </div>
+                <div class="experience-item">
+                    <h4>Facilities Associate</h4>
+                    <p class="details">Topgolf, Atlanta, Georgia | November 2021 - May 2022</p>
+                    <ul>
+                        <li>Ensured optimal facility efficiency and guest satisfaction.</li>
+                        <li>Collaborated with a multidisciplinary team of 12.</li>
+                    </ul>
+                    <div>
+                        <span class="tag">Facility Management</span>
+                        <span class="tag">Customer Service</span>
+                        <span class="tag">Team Collaboration</span>
+                    </div>
+                </div>
+            </section>
+
+            <section id="projects">
+                <h3>Projects</h3>
+                <div class="project-item">
+                    <h4>Adversarial AI Detector Attack</h4>
+                    <p>Implemented an attack on AI detectors based on academic research, exploring vulnerabilities in AI detection systems.</p>
+                    <a href="#" class="project-link">View Project</a>
+                </div>
+                <div class="project-item">
+                    <h4>Text Style Transfer using RepEng</h4>
+                    <p>Developed a project utilizing RepEng for text style transfer, demonstrating proficiency in natural language processing techniques.</p>
+                    <a href="#" class="project-link">View Project</a>
+                </div>
+                <div class="project-item">
+                    <h4>Dynamic Browser Content</h4>
+                    <p>Created a tool to generate dynamic content based on browser interactions, showcasing web development and user experience skills.</p>
+                    <a href="#" class="project-link">View Project</a>
+                </div>
+            </section>
+
+            <section id="relative-companies">
+                <h3>Relative Companies</h3>
+                <p>The highly profitable e-commerce and SaaS model of selling both physical and digital products is used to finance a lot at Relative Capital. We invest into a plethora of assets and different investment vehicles. Our investments must meet several criteria whether they are short or long term assets.</p>
+                <a href="https://relativecompanies.com" class="project-link" target="_blank">Learn More</a>
+            </section>
+        </div>
     </div>
+
+    <div class="social-links">
+        <a href="https://github.com/yourusername" title="GitHub" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://twitter.com/yourusername" title="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.linkedin.com/in/willkusch/" title="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
+    </div>
+
+    <script>
+    document.addEventListener('mousemove', (e) => {
+        const spotlight = document.querySelector('.spotlight');
+        spotlight.style.background = `radial-gradient(circle at ${e.clientX}px ${e.clientY}px, rgba(255, 255, 255, 0.03) 0%, rgba(10, 15, 28, 0) 80%)`;
+    });
+    </script>
 </body>
 </html>

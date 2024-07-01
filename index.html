@@ -218,6 +218,74 @@
             z-index: 1;
         }
 
+        .code-preview {
+            display: none;
+            background-color: #1e1e1e;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-top: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .code-preview pre {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .github-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .github-overlay span {
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .code-preview:hover .github-overlay {
+            opacity: 1;
+        }
+
+        .disco-toggle {
+            display: flex;
+            align-items: center;
+            margin-top: 1rem;
+        }
+
+        .disco-toggle input {
+            margin-right: 0.5rem;
+        }
+
+        @keyframes disco {
+            0% { background-color: #ff00ff; }
+            33% { background-color: #00ffff; }
+            66% { background-color: #ffff00; }
+            100% { background-color: #ff00ff; }
+        }
+
+        .disco-active {
+            animation: disco 5s linear infinite;
+        }
+
+        .disco-active * {
+            animation: spin 3s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
         @media (max-width: 768px) {
             .container {
                 flex-direction: column;
@@ -249,19 +317,23 @@
                 </ul>
             </nav>
             <div class="social-links">
-                <a href="https://github.com/will4381" title="GitHub" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://twitter.com/hellakusch" title="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://github.com/yourusername" title="GitHub" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://twitter.com/yourusername" title="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
                 <a href="https://www.linkedin.com/in/willkusch/" title="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <div class="disco-toggle">
+                <input type="checkbox" id="disco-mode" />
+                <label for="disco-mode">Disco Mode</label>
             </div>
         </div>
         <div class="right-column">
             <section id="about">
-                <p>I'm an <strong>accounting graduate</strong> from Georgia State University with a passion for <strong>data analytics</strong>, <strong>entrepreneurship</strong>, and <strong>technology</strong>. My diverse skill set spans from <strong>financial analysis</strong> to <strong>programming</strong>, and I'm always eager to take on new challenges.</p>
+                <p>I'm an <strong>accounting student</strong> at Georgia State University with a passion for <strong>data analytics</strong>, <strong>entrepreneurship</strong>, and <strong>technology</strong>. My diverse skill set spans from <strong>financial analysis</strong> to <strong>programming</strong>, and I'm always eager to take on new challenges.</p>
             </section>
 
             <section id="experience" class="experience-section">
                 <h3>Experience</h3>
-                <div class="experience-item" data-url="https://gwinnettcounty.com">
+                <div class="experience-item" data-url="https://example.com/lifeguard">
                     <h4>Lifeguard, Swim Instructor, Lifeguard Instructor <i class="fas fa-arrow-right"></i></h4>
                     <p class="details">Gwinnett County Parks and Recreation, Lilburn, Georgia | May 2022 - Present</p>
                     <p>Enforced safety protocols and monitored swimming area. Planned and conducted courses for lifeguard certification.</p>
@@ -271,7 +343,7 @@
                         <span class="tag">Leadership</span>
                     </div>
                 </div>
-                <div class="experience-item" data-url="https://getposteries.com">
+                <div class="experience-item" data-url="https://example.com/posteries">
                     <h4>Co-Founder <i class="fas fa-arrow-right"></i></h4>
                     <p class="details">Posteries, Atlanta, Georgia | August 2022 - February 2023</p>
                     <p>Co-founded an entrepreneurial venture, focusing on financial management. Developed internal applications using no-code tools.</p>
@@ -281,7 +353,7 @@
                         <span class="tag">No-Code Development</span>
                     </div>
                 </div>
-                <div class="experience-item" data-url="https://www.gwinnettswimleague.com">
+                <div class="experience-item" data-url="https://example.com/swim-league">
                     <h4>Head Coach / Manager <i class="fas fa-arrow-right"></i></h4>
                     <p class="details">Gwinnett County Swim League, Lilburn, Georgia | April 2022 - August 2022</p>
                     <p>Managed a team of 9 assistant coaches. Spearheaded interactions with parents and stakeholders.</p>
@@ -291,7 +363,7 @@
                         <span class="tag">Stakeholder Communication</span>
                     </div>
                 </div>
-                <div class="experience-item" data-url="https://topgolf.com">
+                <div class="experience-item" data-url="https://example.com/topgolf">
                     <h4>Facilities Associate <i class="fas fa-arrow-right"></i></h4>
                     <p class="details">Topgolf, Atlanta, Georgia | November 2021 - May 2022</p>
                     <p>Ensured optimal facility efficiency and guest satisfaction. Collaborated with a multidisciplinary team of 12.</p>
@@ -305,72 +377,175 @@
 
             <section id="projects" class="projects-section">
                 <h3>Projects</h3>
-                <div class="project-item" data-url="https://github.com/will4381/adversarial-ai-detector-attack">
+                <div class="project-item" data-url="https://github.com/yourusername/adversarial-ai-detector">
                     <h4>Adversarial AI Detector Attack <i class="fas fa-arrow-right"></i></h4>
                     <p>Implemented an attack on AI detectors based on academic research, exploring vulnerabilities in AI detection systems.</p>
-                </div>
-                <div class="project-item" data-url="https://github.com/will4381/repeng-text-style-transfer">
-                    <h4>Text Style Transfer using RepEng <i class="fas fa-arrow-right"></i></h4>
-                    <p>Developed a project utilizing RepEng for text style transfer, demonstrating proficiency in natural language processing techniques.</p>
-                </div>
-                <div class="project-item" data-url="https://github.com/will4381/dynamic-content-from-browser-cookies">
-                    <h4>Dynamic Browser Content <i class="fas fa-arrow-right"></i></h4>
-                    <p>Created a tool to generate dynamic content based on browser interactions, showcasing web development and user experience skills.</p>
-                </div>
-            </section>
-        </div>
-    </div>
+                    <div class="code-preview">
+                        <pre><code>
+# Example code for Adversarial AI Detector Attack
+import torch
+import torch.nn as nn
 
-    <script>
-        document.addEventListener('mousemove', (e) => {
-            const spotlight = document.querySelector('.spotlight');
-            spotlight.style.background = `
-                radial-gradient(
-                    circle 400px at ${e.clientX}px ${e.clientY}px, 
-                    rgba(255, 255, 255, 0.05) 0%, 
-                    rgba(10, 15, 28, 0) 70%
-                )
-            `;
-            spotlight.style.filter = 'blur(60px)';
-        });
-        
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelectorAll('nav li').forEach(item => item.classList.remove('active'));
-                this.parentElement.classList.add('active');
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-        
-        // Highlight active section on scroll
-        window.addEventListener('scroll', () => {
-            let current = '';
-            document.querySelectorAll('section').forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (pageYOffset >= sectionTop - 60) {
-                    current = section.getAttribute('id');
-                }
-            });
-            document.querySelectorAll('nav li').forEach(li => {
-                li.classList.remove('active');
-                if (li.querySelector('a').getAttribute('href') === `#${current}`) {
-                    li.classList.add('active');
-                }
-            });
-        });
-        
-        // Add click event to experience and project items
-        document.querySelectorAll('.experience-item, .project-item').forEach(item => {
-            item.addEventListener('click', function() {
-                const url = this.getAttribute('data-url');
-                if (url) {
-                    window.open(url, '_blank');
-                }
-            });
-        });
-    </script>
+class AdversarialDetector(nn.Module):
+    def __init__(self):
+        super(AdversarialDetector, self).__init__()
+        self.conv1 = nn.Conv2d(3, 16, 3, padding=1)
+        self.conv2 = nn.Conv2d(16, 32, 3, padding=1)
+        self.fc = nn.Linear(32 * 8 * 8, 2)
+
+    def forward(self, x):
+        x = F.relu(self.conv1(x))
+        x = F.max_pool2d(x, 2)
+        x = F.relu(self.conv2(x))
+        x = F.max_pool2d(x, 2)
+        x = x.view(-1, 32 * 8 * 8)
+        x = self.fc(x)
+        return x
+        <div class="project-item" data-url="https://github.com/yourusername/repeng-style-transfer">
+            <h4>Text Style Transfer using RepEng <i class="fas fa-arrow-right"></i></h4>
+            <p>Developed a project utilizing RepEng for text style transfer, demonstrating proficiency in natural language processing techniques.</p>
+            <div class="code-preview">
+                <pre><code>
+# Example code for Text Style Transfer using RepEng
+import torch
+from transformers import BertTokenizer, BertForSequenceClassification
+
+class StyleTransfer:
+def __init__(self):
+self.tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
+self.model = BertForSequenceClassification.from_pretrained('bert-base-uncased')
+
+def transfer_style(self, text, target_style):
+inputs = self.tokenizer(text, return_tensors="pt")
+outputs = self.model(**inputs)
+
+# Apply style transfer logic here
+
+return transferred_text
+
+# Usage
+st = StyleTransfer()
+original_text = "Hello, how are you?"
+target_style = "formal"
+result = st.transfer_style(original_text, target_style)
+print(result)
+                </code></pre>
+                <div class="github-overlay">
+                    <span>View on <i class="fab fa-github"></i></span>
+                </div>
+            </div>
+        </div>
+        <div class="project-item" data-url="https://github.com/yourusername/dynamic-browser-content">
+            <h4>Dynamic Browser Content <i class="fas fa-arrow-right"></i></h4>
+            <p>Created a tool to generate dynamic content based on browser interactions, showcasing web development and user experience skills.</p>
+            <div class="code-preview">
+                <pre><code>
+// Example code for Dynamic Browser Content
+document.addEventListener('DOMContentLoaded', () => {
+const contentArea = document.getElementById('dynamic-content');
+
+function generateContent() {
+const content = `
+    <h2>Dynamic Content ${Math.floor(Math.random() * 100)}</h2>
+    <p>${lorem.generateParagraphs(1)}</p>
+`;
+contentArea.innerHTML = content;
+}
+
+document.getElementById('generate-btn').addEventListener('click', generateContent);
+
+// More dynamic content generation logic...
+});
+                </code></pre>
+                <div class="github-overlay">
+                    <span>View on <i class="fab fa-github"></i></span>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+</div>
+
+<script>
+document.addEventListener('mousemove', (e) => {
+const spotlight = document.querySelector('.spotlight');
+spotlight.style.background = `
+    radial-gradient(
+        circle 400px at ${e.clientX}px ${e.clientY}px, 
+        rgba(255, 255, 255, 0.05) 0%, 
+        rgba(10, 15, 28, 0) 70%
+    )
+`;
+spotlight.style.filter = 'blur(60px)';
+});
+
+document.querySelectorAll('nav a').forEach(anchor => {
+anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    document.querySelectorAll('nav li').forEach(item => item.classList.remove('active'));
+    this.parentElement.classList.add('active');
+    document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+    });
+});
+});
+
+// Highlight active section on scroll
+window.addEventListener('scroll', () => {
+let current = '';
+document.querySelectorAll('section').forEach(section => {
+    const sectionTop = section.offsetTop;
+    if (pageYOffset >= sectionTop - 60) {
+        current = section.getAttribute('id');
+    }
+});
+document.querySelectorAll('nav li').forEach(li => {
+    li.classList.remove('active');
+    if (li.querySelector('a').getAttribute('href') === `#${current}`) {
+        li.classList.add('active');
+    }
+});
+});
+
+// Project preview functionality
+let activePreview = null;
+document.querySelectorAll('.project-item').forEach(item => {
+const preview = item.querySelector('.code-preview');
+item.addEventListener('mouseenter', () => {
+    if (activePreview && activePreview !== preview) {
+        activePreview.style.display = 'none';
+    }
+    preview.style.display = 'block';
+    activePreview = preview;
+});
+});
+
+// Disco mode
+const discoToggle = document.getElementById('disco-mode');
+discoToggle.addEventListener('change', () => {
+document.body.classList.toggle('disco-active', discoToggle.checked);
+});
+
+// GitHub link
+document.querySelectorAll('.github-overlay').forEach(overlay => {
+overlay.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const url = overlay.closest('.project-item').getAttribute('data-url');
+    if (url) {
+        window.open(url, '_blank');
+    }
+});
+});
+
+// Experience item link
+document.querySelectorAll('.experience-item').forEach(item => {
+item.addEventListener('click', function() {
+    const url = this.getAttribute('data-url');
+    if (url) {
+        window.open(url, '_blank');
+    }
+});
+});
+</script>
 </body>
 </html>

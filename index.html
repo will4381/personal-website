@@ -13,8 +13,10 @@
             --text-color: #e6e6e6;
             --secondary-color: #8892b0;
             --chip-color: #2a4a7f;
+            --hover-color: rgba(30, 58, 95, 0.5);
             --line-color: #1e3a5f;
             --transition: all 0.3s ease;
+            --font-inter: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
         }
 
         * {
@@ -23,9 +25,18 @@
             box-sizing: border-box;
         }
 
+        html {
+            line-height: 1.5;
+            -webkit-text-size-adjust: 100%;
+            -moz-tab-size: 4;
+            -o-tab-size: 4;
+            tab-size: 4;
+            font-family: var(--font-inter);
+            font-feature-settings: "ss03", "cv02", "cv11";
+            font-variation-settings: normal;
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
             color: var(--text-color);
             background-color: var(--bg-color);
             overflow-x: hidden;
@@ -102,7 +113,7 @@
 
         .social-links a {
             color: var(--secondary-color);
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             transition: var(--transition);
         }
 
@@ -123,6 +134,20 @@
 
         .experience-item, .project-item {
             margin-bottom: 1.5rem;
+            padding: 1rem;
+            border-radius: 8px;
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .experience-item:hover, .project-item:hover {
+            background-color: var(--hover-color);
+        }
+
+        .experience-section:hover .experience-item:not(:hover),
+        .projects-section:hover .project-item:not(:hover) {
+            filter: blur(2px);
         }
 
         .experience-item h4, .project-item h4 {
@@ -148,7 +173,7 @@
             background-color: var(--chip-color);
             color: var(--text-color);
             padding: 0.2rem 0.5rem;
-            border-radius: 3px;
+            border-radius: 15px;
             font-size: 0.7rem;
             margin-right: 0.5rem;
             margin-top: 0.5rem;
@@ -156,17 +181,14 @@
 
         .project-link {
             display: inline-block;
-            background-color: var(--chip-color);
             color: var(--text-color);
-            padding: 0.2rem 0.5rem;
-            border-radius: 3px;
-            font-size: 0.8rem;
+            font-size: 1.2rem;
             text-decoration: none;
             transition: var(--transition);
         }
 
         .project-link:hover {
-            background-color: var(--secondary-color);
+            color: var(--secondary-color);
         }
 
         .spotlight {
@@ -203,9 +225,9 @@
             <h1>Will Kusch</h1>
             <h2>Recent Graduate and Entrepreneur</h2>
             <p>Building engaging digital experiences with a unique perspective.</p>
-            <p>I'm an accounting student at Georgia State University with a passion for data analytics, entrepreneurship, and technology. My diverse skill set spans from financial analysis to programming, and I'm always eager to take on new challenges.</p>
             <nav>
                 <ul>
+                    <li><a href="#about">ABOUT</a></li>
                     <li><a href="#experience">EXPERIENCE</a></li>
                     <li><a href="#projects">PROJECTS</a></li>
                 </ul>
@@ -217,7 +239,14 @@
             </div>
         </div>
         <div class="right-column">
-            <section id="experience">
+            <section id="about">
+                <h3>About Me</h3>
+                <p>I'm an accounting student at Georgia State University with a passion for data analytics, entrepreneurship, and technology. My diverse skill set spans from financial analysis to programming, and I'm always eager to take on new challenges. With a background in accounting and a keen interest in cutting-edge technologies, I bring a unique perspective to every project I undertake.</p>
+                <p>Throughout my academic journey and various professional experiences, I've developed strong skills in financial management, leadership, and problem-solving. I'm particularly interested in the intersection of finance and technology, exploring ways to leverage data analytics and innovative tools to drive business success.</p>
+                <p>When I'm not immersed in my studies or working on projects, you can find me engaging in activities that fuel my curiosity and personal growth. I'm an avid learner, always seeking new knowledge and skills to expand my horizons and stay ahead in the rapidly evolving world of technology and finance.</p>
+            </section>
+
+            <section id="experience" class="experience-section">
                 <h3>Experience</h3>
                 <div class="experience-item">
                     <h4>Lifeguard, Swim Instructor, Lifeguard Instructor</h4>
@@ -228,6 +257,7 @@
                         <span class="tag">Instruction</span>
                         <span class="tag">Leadership</span>
                     </div>
+                    <i class="fas fa-arrow-right project-link"></i>
                 </div>
                 <div class="experience-item">
                     <h4>Co-Founder</h4>
@@ -238,6 +268,7 @@
                         <span class="tag">Financial Management</span>
                         <span class="tag">No-Code Development</span>
                     </div>
+                    <i class="fas fa-arrow-right project-link"></i>
                 </div>
                 <div class="experience-item">
                     <h4>Head Coach / Manager</h4>
@@ -248,6 +279,7 @@
                         <span class="tag">Leadership</span>
                         <span class="tag">Stakeholder Communication</span>
                     </div>
+                    <i class="fas fa-arrow-right project-link"></i>
                 </div>
                 <div class="experience-item">
                     <h4>Facilities Associate</h4>
@@ -258,25 +290,26 @@
                         <span class="tag">Customer Service</span>
                         <span class="tag">Team Collaboration</span>
                     </div>
+                    <i class="fas fa-arrow-right project-link"></i>
                 </div>
             </section>
 
-            <section id="projects">
+            <section id="projects" class="projects-section">
                 <h3>Projects</h3>
                 <div class="project-item">
                     <h4>Adversarial AI Detector Attack</h4>
                     <p>Implemented an attack on AI detectors based on academic research, exploring vulnerabilities in AI detection systems.</p>
-                    <a href="#" class="project-link">View Project</a>
+                    <i class="fas fa-arrow-right project-link"></i>
                 </div>
                 <div class="project-item">
                     <h4>Text Style Transfer using RepEng</h4>
                     <p>Developed a project utilizing RepEng for text style transfer, demonstrating proficiency in natural language processing techniques.</p>
-                    <a href="#" class="project-link">View Project</a>
+                    <i class="fas fa-arrow-right project-link"></i>
                 </div>
                 <div class="project-item">
                     <h4>Dynamic Browser Content</h4>
                     <p>Created a tool to generate dynamic content based on browser interactions, showcasing web development and user experience skills.</p>
-                    <a href="#" class="project-link">View Project</a>
+                    <i class="fas fa-arrow-right project-link"></i>
                 </div>
             </section>
         </div>
@@ -285,7 +318,14 @@
     <script>
     document.addEventListener('mousemove', (e) => {
         const spotlight = document.querySelector('.spotlight');
-        spotlight.style.background = `radial-gradient(circle at ${e.clientX}px ${e.clientY}px, rgba(255, 255, 255, 0.03) 0%, rgba(10, 15, 28, 0) 15%)`;
+        spotlight.style.background = `
+            radial-gradient(
+                circle 400px at ${e.clientX}px ${e.clientY}px, 
+                rgba(255, 255, 255, 0.05) 0%, 
+                rgba(10, 15, 28, 0) 70%
+            )
+        `;
+        spotlight.style.filter = 'blur(60px)';
     });
 
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -294,6 +334,13 @@
             document.querySelector(this.getAttribute('href')).scrollIntoView({
                 behavior: 'smooth'
             });
+        });
+    });
+
+    document.querySelectorAll('.experience-item, .project-item').forEach(item => {
+        item.addEventListener('click', function() {
+            // You can add a link to each item here if needed
+            // window.location.href = 'your-link-here';
         });
     });
     </script>

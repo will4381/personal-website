@@ -33,67 +33,24 @@
 
         .container {
             display: flex;
-            justify-content: center;
-            min-height: 100vh;
+            justify-content: space-between;
             max-width: 1200px;
             margin: 0 auto;
+            padding: 2rem;
         }
 
         .left-column {
-            width: 300px;
-            padding: 40px;
-            position: fixed;
-            height: 100vh;
+            width: 25%;
+            position: sticky;
+            top: 2rem;
+            height: calc(100vh - 4rem);
             display: flex;
             flex-direction: column;
         }
 
         .right-column {
-            width: calc(100% - 300px);
-            margin-left: 300px;
-            padding: 40px 40px 40px 80px;
+            width: 70%;
             overflow-y: auto;
-            height: 100vh;
-        }
-
-        nav ul {
-            list-style-type: none;
-            margin-top: 2rem;
-        }
-
-        nav ul li {
-            margin-bottom: 1rem;
-        }
-
-        nav ul li a {
-            color: var(--secondary-color);
-            text-decoration: none;
-            font-weight: 400;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-        }
-
-        nav ul li a::before {
-            content: "";
-            display: inline-block;
-            width: 20px;
-            height: 1px;
-            background-color: var(--secondary-color);
-            margin-right: 10px;
-            transition: var(--transition);
-        }
-
-        nav ul li a:hover {
-            color: var(--text-color);
-        }
-
-        nav ul li a:hover::before {
-            width: 30px;
-            background-color: var(--text-color);
         }
 
         h1 {
@@ -110,9 +67,31 @@
         }
 
         p {
-            font-size: 1rem;
+            font-size: 0.9rem;
             color: var(--secondary-color);
             margin-bottom: 1rem;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin-top: 2rem;
+        }
+
+        nav ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        nav ul li a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover {
+            color: var(--text-color);
         }
 
         .social-links {
@@ -123,7 +102,7 @@
 
         .social-links a {
             color: var(--secondary-color);
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             transition: var(--transition);
         }
 
@@ -133,12 +112,6 @@
 
         section {
             margin-bottom: 3rem;
-            padding-bottom: 3rem;
-            border-bottom: 1px solid var(--line-color);
-        }
-
-        section:last-child {
-            border-bottom: none;
         }
 
         h3 {
@@ -162,6 +135,7 @@
             font-style: italic;
             color: var(--secondary-color);
             margin-bottom: 0.5rem;
+            font-size: 0.8rem;
         }
 
         .experience-item p {
@@ -175,7 +149,7 @@
             color: var(--text-color);
             padding: 0.2rem 0.5rem;
             border-radius: 3px;
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             margin-right: 0.5rem;
             margin-top: 0.5rem;
         }
@@ -210,25 +184,14 @@
                 flex-direction: column;
             }
 
-            .left-column {
+            .left-column, .right-column {
                 width: 100%;
+            }
+
+            .left-column {
                 position: static;
                 height: auto;
-                padding-bottom: 20px;
-            }
-
-            .right-column {
-                width: 100%;
-                margin-left: 0;
-                padding: 20px;
-            }
-
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            .social-links {
-                margin-top: 1rem;
+                margin-bottom: 2rem;
             }
         }
     </style>
@@ -240,24 +203,20 @@
             <h1>Will Kusch</h1>
             <h2>Recent Graduate and Entrepreneur</h2>
             <p>Building engaging digital experiences with a unique perspective.</p>
+            <p>I'm an accounting student at Georgia State University with a passion for data analytics, entrepreneurship, and technology. My diverse skill set spans from financial analysis to programming, and I'm always eager to take on new challenges.</p>
             <nav>
                 <ul>
-                    <li><a href="#about">ABOUT</a></li>
                     <li><a href="#experience">EXPERIENCE</a></li>
                     <li><a href="#projects">PROJECTS</a></li>
                 </ul>
             </nav>
             <div class="social-links">
-                <a href="https://github.com/will4381" title="GitHub" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://twitter.com/hella_kusch" title="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://github.com/yourusername" title="GitHub" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://twitter.com/yourusername" title="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
                 <a href="https://www.linkedin.com/in/willkusch/" title="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
             </div>
         </div>
         <div class="right-column">
-            <section id="about">
-                <p>I'm an accounting student at Georgia State University with a passion for data analytics, entrepreneurship, and technology. My diverse skill set spans from financial analysis to programming, and I'm always eager to take on new challenges.</p>
-            </section>
-
             <section id="experience">
                 <h3>Experience</h3>
                 <div class="experience-item">
@@ -326,7 +285,7 @@
     <script>
     document.addEventListener('mousemove', (e) => {
         const spotlight = document.querySelector('.spotlight');
-        spotlight.style.background = `radial-gradient(circle at ${e.clientX}px ${e.clientY}px, rgba(255, 255, 255, 0.03) 0%, rgba(10, 15, 28, 0) 60%)`;
+        spotlight.style.background = `radial-gradient(circle at ${e.clientX}px ${e.clientY}px, rgba(255, 255, 255, 0.03) 0%, rgba(10, 15, 28, 0) 15%)`;
     });
 
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {

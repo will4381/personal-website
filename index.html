@@ -9,11 +9,11 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 
         :root {
-            --bg-color-1: #0a0f1c;
-            --bg-color-2: #1a2335;
+            --bg-color: #0a1525;
             --text-color: #ffffff;
             --secondary-color: #8892b0;
-            --chip-color: #1e2a3e;
+            --chip-color: #2a4a7f;
+            --line-color: #1e3a5f;
             --transition: all 0.3s ease;
         }
 
@@ -27,29 +27,29 @@
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
             color: var(--text-color);
-            background: linear-gradient(135deg, var(--bg-color-1) 0%, var(--bg-color-2) 100%);
-            min-height: 100vh;
-            display: flex;
+            background-color: var(--bg-color);
             overflow-x: hidden;
         }
 
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px;
             display: flex;
+            min-height: 100vh;
         }
 
         .left-column {
-            width: 300px;
-            padding-right: 40px;
+            width: 350px;
+            padding: 40px;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
         }
 
         .right-column {
             flex-grow: 1;
+            margin-left: 350px;
+            padding: 40px 40px 40px 80px;
             overflow-y: auto;
-            max-height: calc(100vh - 80px);
-            padding-right: 20px;
+            height: 100vh;
         }
 
         nav ul {
@@ -82,10 +82,10 @@
         }
 
         h2 {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             color: var(--secondary-color);
             font-weight: 400;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         p {
@@ -95,15 +95,14 @@
         }
 
         .social-links {
-            position: fixed;
-            bottom: 40px;
-            left: 40px;
             display: flex;
+            justify-content: center;
             gap: 1rem;
+            margin-top: 2rem;
         }
 
         .social-links a {
-            color: #4a5568;
+            color: var(--secondary-color);
             font-size: 1.5rem;
             transition: var(--transition);
         }
@@ -112,22 +111,18 @@
             color: var(--text-color);
         }
 
-        .spotlight {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-
         section {
             margin-bottom: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid var(--line-color);
         }
 
-        section h3 {
-            font-size: 1.2rem;
+        section:last-child {
+            border-bottom: none;
+        }
+
+        h3 {
+            font-size: 1.5rem;
             color: var(--text-color);
             margin-bottom: 1rem;
             font-weight: 600;
@@ -139,17 +134,13 @@
 
         .experience-item h4, .project-item h4 {
             color: var(--text-color);
-            font-weight: 400;
+            font-weight: 600;
             margin-bottom: 0.3rem;
         }
 
         .experience-item .details {
             font-style: italic;
             color: var(--secondary-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .experience-item p, .project-item p {
             margin-bottom: 0.5rem;
         }
 
@@ -161,7 +152,7 @@
             border-radius: 3px;
             font-size: 0.8rem;
             margin-right: 0.5rem;
-            margin-bottom: 0.5rem;
+            margin-top: 0.5rem;
         }
 
         .project-link {
@@ -184,25 +175,34 @@
                 flex-direction: column;
             }
 
-            .left-column, .right-column {
+            .left-column {
                 width: 100%;
-                padding-right: 0;
+                position: static;
+                height: auto;
+                padding-bottom: 20px;
+            }
+
+            .right-column {
+                margin-left: 0;
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2.5rem;
             }
 
             .social-links {
-                position: static;
-                margin-top: 2rem;
+                margin-top: 1rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="spotlight"></div>
     <div class="container">
         <div class="left-column">
             <h1>Will Kusch</h1>
             <h2>Recent Graduate and Entrepreneur</h2>
-            <p>I build pixel-perfect, engaging, and accessible digital experiences. With a background in accounting and a passion for technology, I bring a unique perspective to every project.</p>
+            <p>Building engaging digital experiences with a unique perspective.</p>
             <nav>
                 <ul>
                     <li><a href="#about">ABOUT</a></li>
@@ -210,10 +210,14 @@
                     <li><a href="#projects">PROJECTS</a></li>
                 </ul>
             </nav>
+            <div class="social-links">
+                <a href="https://github.com/yourusername" title="GitHub" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://twitter.com/yourusername" title="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.linkedin.com/in/willkusch/" title="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
         </div>
         <div class="right-column">
             <section id="about">
-                <h3>About Me</h3>
                 <p>I'm an accounting student at Georgia State University with a passion for data analytics, entrepreneurship, and technology. My diverse skill set spans from financial analysis to programming, and I'm always eager to take on new challenges.</p>
             </section>
 
@@ -291,25 +295,17 @@
                     <a href="#" class="project-link">View Project</a>
                 </div>
             </section>
-
-            <section id="relative-companies">
-                <h3>Relative Companies</h3>
-                <p>The highly profitable e-commerce and SaaS model of selling both physical and digital products is used to finance a lot at Relative Capital. We invest into a plethora of assets and different investment vehicles. Our investments must meet several criteria whether they are short or long term assets.</p>
-                <a href="https://relativecompanies.com" class="project-link" target="_blank">Learn More</a>
-            </section>
         </div>
     </div>
 
-    <div class="social-links">
-        <a href="https://github.com/yourusername" title="GitHub" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="https://twitter.com/yourusername" title="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
-        <a href="https://www.linkedin.com/in/willkusch/" title="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
-    </div>
-
     <script>
-    document.addEventListener('mousemove', (e) => {
-        const spotlight = document.querySelector('.spotlight');
-        spotlight.style.background = `radial-gradient(circle at ${e.clientX}px ${e.clientY}px, rgba(255, 255, 255, 0.03) 0%, rgba(10, 15, 28, 0) 80%)`;
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
     });
     </script>
 </body>

@@ -322,45 +322,55 @@
     </div>
 
     <script>
-    document.addEventListener('mousemove', (e) => {
-        const spotlight = document.querySelector('.spotlight');
-        spotlight.style.background = `
-            radial-gradient(
-                circle 400px at ${e.clientX}px ${e.clientY}px, 
-                rgba(255, 255, 255, 0.05) 0%, 
-                rgba(10, 15, 28, 0) 70%
-            )
-        `;
-        spotlight.style.filter = 'blur(60px)';
-    });
-
-    document.querySelectorAll('nav a').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelectorAll('nav li').forEach(item => item.classList.remove('active'));
-            this.parentElement.classList.add('active');
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
+        document.addEventListener('mousemove', (e) => {
+            const spotlight = document.querySelector('.spotlight');
+            spotlight.style.background = `
+                radial-gradient(
+                    circle 400px at ${e.clientX}px ${e.clientY}px, 
+                    rgba(255, 255, 255, 0.05) 0%, 
+                    rgba(10, 15, 28, 0) 70%
+                )
+            `;
+            spotlight.style.filter = 'blur(60px)';
+        });
+        
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelectorAll('nav li').forEach(item => item.classList.remove('active'));
+                this.parentElement.classList.add('active');
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
             });
         });
-    });
-
-    // Highlight active section on scroll
-    window.addEventListener('scroll', () => {
-        let current = '';
-        document.querySelectorAll('section').forEach(section => {
-            const sectionTop = section.offsetTop;
-            if (pageYOffset >= sectionTop - 60) {
-                current = section.getAttribute('id');
-            }
+        
+        // Highlight active section on scroll
+        window.addEventListener('scroll', () => {
+            let current = '';
+            document.querySelectorAll('section').forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 60) {
+                    current = section.getAttribute('id');
+                }
+            });
+            document.querySelectorAll('nav li').forEach(li => {
+                li.classList.remove('active');
+                if (li.querySelector('a').getAttribute('href') === `#${current}`) {
+                    li.classList.add('active');
+                }
+            });
         });
-        document.querySelectorAll('nav li').forEach(li => {
-            li.classList.remove('active');
-            if (li.querySelector('a').getAttribute('href') === `#${current}`) {
-                li.classList.add('active');
-            }
+        
+        // Add click event to experience and project items
+        document.querySelectorAll('.experience-item, .project-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const url = this.getAttribute('data-url');
+                if (url) {
+                    window.open(url, '_blank');
+                }
+            });
         });
-    });
     </script>
 </body>
 </html>

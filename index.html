@@ -128,6 +128,7 @@
             margin-top: auto;
             display: flex;
             gap: 1rem;
+            align-items: center;
         }
 
         .social-links a {
@@ -260,14 +261,13 @@
         .disco-toggle {
             display: flex;
             align-items: center;
-            margin-top: 1rem;
         }
 
         .disco-toggle label {
             position: relative;
             display: inline-block;
-            width: 60px;
-            height: 34px;
+            width: 40px;
+            height: 20px;
         }
 
         .disco-toggle input {
@@ -283,41 +283,51 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: #ccc;
+            background-color: var(--secondary-color);
             transition: .4s;
-            border-radius: 34px;
+            border-radius: 20px;
         }
 
         .slider:before {
             position: absolute;
             content: "";
-            height: 26px;
-            width: 26px;
-            left: 4px;
-            bottom: 4px;
-            background-color: white;
+            height: 16px;
+            width: 16px;
+            left: 2px;
+            bottom: 2px;
+            background-color: var(--bg-color);
             transition: .4s;
             border-radius: 50%;
         }
 
         input:checked + .slider {
-            background-color: #2196F3;
+            background-color: var(--text-color);
         }
 
         input:checked + .slider:before {
-            transform: translateX(26px);
+            transform: translateX(20px);
+        }
+
+        .disco-mode {
+            animation: subtle-bg-shift 10s infinite;
         }
 
         .disco-mode h1, .disco-mode h3 {
-            animation: color-cycle 5s infinite;
+            animation: subtle-text-shift 10s infinite;
         }
 
-        @keyframes color-cycle {
-            0% { color: #ff9999; text-shadow: 0 0 10px rgba(255,153,153,0.5); }
-            25% { color: #99ff99; text-shadow: 0 0 10px rgba(153,255,153,0.5); }
-            50% { color: #9999ff; text-shadow: 0 0 10px rgba(153,153,255,0.5); }
-            75% { color: #ffff99; text-shadow: 0 0 10px rgba(255,255,153,0.5); }
-            100% { color: #ff9999; text-shadow: 0 0 10px rgba(255,153,153,0.5); }
+        @keyframes subtle-bg-shift {
+            0% { background-color: #0a1525; }
+            33% { background-color: #0a1825; }
+            66% { background-color: #0a1528; }
+            100% { background-color: #0a1525; }
+        }
+
+        @keyframes subtle-text-shift {
+            0% { color: #d4d4d4; text-shadow: 0 0 10px rgba(212,212,212,0.3); }
+            33% { color: #d4d8d4; text-shadow: 0 0 10px rgba(212,216,212,0.3); }
+            66% { color: #d4d4d8; text-shadow: 0 0 10px rgba(212,212,216,0.3); }
+            100% { color: #d4d4d4; text-shadow: 0 0 10px rgba(212,212,212,0.3); }
         }
 
         @media (max-width: 768px) {
@@ -351,16 +361,16 @@
                 </ul>
             </nav>
             <div class="social-links">
+                <a href="mailto:will@relativecompanies.com" title="Email"><i class="fas fa-envelope"></i></a>
                 <a href="https://github.com/yourusername" title="GitHub" target="_blank"><i class="fab fa-github"></i></a>
                 <a href="https://twitter.com/yourusername" title="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
                 <a href="https://www.linkedin.com/in/willkusch/" title="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
-            </div>
-            <div class="disco-toggle">
-                <label for="disco-mode">
-                    <input type="checkbox" id="disco-mode">
-                    <span class="slider"></span>
-                </label>
-                <span>Disco Mode</span>
+                <div class="disco-toggle">
+                    <label for="disco-mode">
+                        <input type="checkbox" id="disco-mode">
+                        <span class="slider"></span>
+                    </label>
+                </div>
             </div>
         </div>
         <div class="right-column">
@@ -510,21 +520,8 @@
 
     // Disco mode
     const discoToggle = document.getElementById('disco-mode');
-    const discoColors = ['#ff9999', '#99ff99', '#9999ff', '#ffff99'];
-    let discoInterval;
-
     discoToggle.addEventListener('change', () => {
-        if (discoToggle.checked) {
-            document.body.classList.add('disco-mode');
-            discoInterval = setInterval(() => {
-                const color = discoColors[Math.floor(Math.random() * discoColors.length)];
-                document.body.style.backgroundColor = color + '20'; // 20 is for 12.5% opacity
-            }, 2000);
-        } else {
-            document.body.classList.remove('disco-mode');
-            clearInterval(discoInterval);
-            document.body.style.backgroundColor = '';
-        }
+        document.body.classList.toggle('disco-mode', discoToggle.checked);
     });
 
     // GitHub link

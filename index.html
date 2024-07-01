@@ -68,19 +68,19 @@
             font-size: 3rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
-        }
-
-        h2 {
-            font-size: 1.2rem;
-            color: var(--secondary-color);
-            font-weight: 400;
-            margin-bottom: 1rem;
+            text-shadow: 0 0 10px rgba(255,255,255,0.3);
         }
 
         p {
-            font-size: 0.9rem;
+            font-size: 1.1rem;
             color: var(--secondary-color);
             margin-bottom: 1rem;
+        }
+
+        p strong {
+            color: var(--text-color);
+            font-weight: 600;
+            text-shadow: 0 0 10px rgba(255,255,255,0.3);
         }
 
         nav ul {
@@ -90,18 +90,36 @@
 
         nav ul li {
             margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
         }
 
         nav ul li a {
             color: var(--secondary-color);
             text-decoration: none;
-            font-size: 0.8rem;
+            font-size: 1rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: var(--transition);
         }
 
-        nav ul li a:hover {
+        nav ul li::before {
+            content: "";
+            width: 20px;
+            height: 1px;
+            background-color: var(--secondary-color);
+            margin-right: 10px;
+            transition: var(--transition);
+        }
+
+        nav ul li:hover::before,
+        nav ul li.active::before {
+            width: 40px;
+            background-color: var(--text-color);
+        }
+
+        nav ul li:hover a,
+        nav ul li.active a {
             color: var(--text-color);
         }
 
@@ -130,6 +148,14 @@
             color: var(--text-color);
             margin-bottom: 1rem;
             font-weight: 600;
+            display: flex;
+            align-items: center;
+            text-shadow: 0 0 10px rgba(255,255,255,0.3);
+        }
+
+        h3 .fa-arrow-right {
+            font-size: 1rem;
+            margin-left: 0.5rem;
         }
 
         .experience-item, .project-item {
@@ -154,6 +180,7 @@
             color: var(--text-color);
             font-weight: 600;
             margin-bottom: 0.3rem;
+            text-shadow: 0 0 10px rgba(255,255,255,0.3);
         }
 
         .experience-item .details {
@@ -223,11 +250,9 @@
     <div class="container">
         <div class="left-column">
             <h1>Will Kusch</h1>
-            <h2>Recent Graduate and Entrepreneur</h2>
-            <p>Building engaging digital experiences with a unique perspective.</p>
+            <p>I'm an <strong>accounting student</strong> at Georgia State University with a passion for <strong>data analytics</strong>, <strong>entrepreneurship</strong>, and <strong>technology</strong>. My diverse skill set spans from <strong>financial analysis</strong> to <strong>programming</strong>, and I'm always eager to take on new challenges.</p>
             <nav>
                 <ul>
-                    <li><a href="#about">ABOUT</a></li>
                     <li><a href="#experience">EXPERIENCE</a></li>
                     <li><a href="#projects">PROJECTS</a></li>
                 </ul>
@@ -239,15 +264,8 @@
             </div>
         </div>
         <div class="right-column">
-            <section id="about">
-                <h3>About Me</h3>
-                <p>I'm an accounting student at Georgia State University with a passion for data analytics, entrepreneurship, and technology. My diverse skill set spans from financial analysis to programming, and I'm always eager to take on new challenges. With a background in accounting and a keen interest in cutting-edge technologies, I bring a unique perspective to every project I undertake.</p>
-                <p>Throughout my academic journey and various professional experiences, I've developed strong skills in financial management, leadership, and problem-solving. I'm particularly interested in the intersection of finance and technology, exploring ways to leverage data analytics and innovative tools to drive business success.</p>
-                <p>When I'm not immersed in my studies or working on projects, you can find me engaging in activities that fuel my curiosity and personal growth. I'm an avid learner, always seeking new knowledge and skills to expand my horizons and stay ahead in the rapidly evolving world of technology and finance.</p>
-            </section>
-
             <section id="experience" class="experience-section">
-                <h3>Experience</h3>
+                <h3>Experience <i class="fas fa-arrow-right"></i></h3>
                 <div class="experience-item">
                     <h4>Lifeguard, Swim Instructor, Lifeguard Instructor</h4>
                     <p class="details">Gwinnett County Parks and Recreation, Lilburn, Georgia | May 2022 - Present</p>
@@ -257,7 +275,6 @@
                         <span class="tag">Instruction</span>
                         <span class="tag">Leadership</span>
                     </div>
-                    <i class="fas fa-arrow-right project-link"></i>
                 </div>
                 <div class="experience-item">
                     <h4>Co-Founder</h4>
@@ -268,7 +285,6 @@
                         <span class="tag">Financial Management</span>
                         <span class="tag">No-Code Development</span>
                     </div>
-                    <i class="fas fa-arrow-right project-link"></i>
                 </div>
                 <div class="experience-item">
                     <h4>Head Coach / Manager</h4>
@@ -279,7 +295,6 @@
                         <span class="tag">Leadership</span>
                         <span class="tag">Stakeholder Communication</span>
                     </div>
-                    <i class="fas fa-arrow-right project-link"></i>
                 </div>
                 <div class="experience-item">
                     <h4>Facilities Associate</h4>
@@ -290,26 +305,22 @@
                         <span class="tag">Customer Service</span>
                         <span class="tag">Team Collaboration</span>
                     </div>
-                    <i class="fas fa-arrow-right project-link"></i>
                 </div>
             </section>
 
             <section id="projects" class="projects-section">
-                <h3>Projects</h3>
+                <h3>Projects <i class="fas fa-arrow-right"></i></h3>
                 <div class="project-item">
                     <h4>Adversarial AI Detector Attack</h4>
                     <p>Implemented an attack on AI detectors based on academic research, exploring vulnerabilities in AI detection systems.</p>
-                    <i class="fas fa-arrow-right project-link"></i>
                 </div>
                 <div class="project-item">
                     <h4>Text Style Transfer using RepEng</h4>
                     <p>Developed a project utilizing RepEng for text style transfer, demonstrating proficiency in natural language processing techniques.</p>
-                    <i class="fas fa-arrow-right project-link"></i>
                 </div>
                 <div class="project-item">
                     <h4>Dynamic Browser Content</h4>
                     <p>Created a tool to generate dynamic content based on browser interactions, showcasing web development and user experience skills.</p>
-                    <i class="fas fa-arrow-right project-link"></i>
                 </div>
             </section>
         </div>
@@ -328,19 +339,31 @@
         spotlight.style.filter = 'blur(60px)';
     });
 
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    document.querySelectorAll('nav a').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
+            document.querySelectorAll('nav li').forEach(item => item.classList.remove('active'));
+            this.parentElement.classList.add('active');
             document.querySelector(this.getAttribute('href')).scrollIntoView({
                 behavior: 'smooth'
             });
         });
     });
 
-    document.querySelectorAll('.experience-item, .project-item').forEach(item => {
-        item.addEventListener('click', function() {
-            // You can add a link to each item here if needed
-            // window.location.href = 'your-link-here';
+    // Highlight active section on scroll
+    window.addEventListener('scroll', () => {
+        let current = '';
+        document.querySelectorAll('section').forEach(section => {
+            const sectionTop = section.offsetTop;
+            if (pageYOffset >= sectionTop - 60) {
+                current = section.getAttribute('id');
+            }
+        });
+        document.querySelectorAll('nav li').forEach(li => {
+            li.classList.remove('active');
+            if (li.querySelector('a').getAttribute('href') === `#${current}`) {
+                li.classList.add('active');
+            }
         });
     });
     </script>

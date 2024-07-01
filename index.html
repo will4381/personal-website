@@ -10,7 +10,7 @@
 
         :root {
             --bg-color: #0a1525;
-            --text-color: #e6e6e6;
+            --text-color: #d4d4d4;
             --secondary-color: #8892b0;
             --chip-color: #2a4a7f;
             --hover-color: rgba(30, 58, 95, 0.5);
@@ -47,14 +47,14 @@
             justify-content: space-between;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 4rem 2rem;
         }
 
         .left-column {
             width: 25%;
             position: sticky;
-            top: 2rem;
-            height: calc(100vh - 4rem);
+            top: 4rem;
+            height: calc(100vh - 8rem);
             display: flex;
             flex-direction: column;
         }
@@ -148,14 +148,7 @@
             color: var(--text-color);
             margin-bottom: 1rem;
             font-weight: 600;
-            display: flex;
-            align-items: center;
             text-shadow: 0 0 10px rgba(255,255,255,0.3);
-        }
-
-        h3 .fa-arrow-right {
-            font-size: 1rem;
-            margin-left: 0.5rem;
         }
 
         .experience-item, .project-item {
@@ -181,6 +174,15 @@
             font-weight: 600;
             margin-bottom: 0.3rem;
             text-shadow: 0 0 10px rgba(255,255,255,0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .experience-item h4 .fa-arrow-right,
+        .project-item h4 .fa-arrow-right {
+            font-size: 0.8em;
+            margin-left: 0.5rem;
         }
 
         .experience-item .details {
@@ -204,18 +206,6 @@
             font-size: 0.7rem;
             margin-right: 0.5rem;
             margin-top: 0.5rem;
-        }
-
-        .project-link {
-            display: inline-block;
-            color: var(--text-color);
-            font-size: 1.2rem;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .project-link:hover {
-            color: var(--secondary-color);
         }
 
         .spotlight {
@@ -250,9 +240,10 @@
     <div class="container">
         <div class="left-column">
             <h1>Will Kusch</h1>
-            <p>I'm an <strong>accounting student</strong> at Georgia State University with a passion for <strong>data analytics</strong>, <strong>entrepreneurship</strong>, and <strong>technology</strong>. My diverse skill set spans from <strong>financial analysis</strong> to <strong>programming</strong>, and I'm always eager to take on new challenges.</p>
+            <p>Building engaging digital experiences with a unique perspective.</p>
             <nav>
                 <ul>
+                    <li><a href="#about">ABOUT</a></li>
                     <li><a href="#experience">EXPERIENCE</a></li>
                     <li><a href="#projects">PROJECTS</a></li>
                 </ul>
@@ -264,10 +255,14 @@
             </div>
         </div>
         <div class="right-column">
+            <section id="about">
+                <p>I'm an <strong>accounting student</strong> at Georgia State University with a passion for <strong>data analytics</strong>, <strong>entrepreneurship</strong>, and <strong>technology</strong>. My diverse skill set spans from <strong>financial analysis</strong> to <strong>programming</strong>, and I'm always eager to take on new challenges.</p>
+            </section>
+
             <section id="experience" class="experience-section">
-                <h3>Experience <i class="fas fa-arrow-right"></i></h3>
+                <h3>Experience</h3>
                 <div class="experience-item">
-                    <h4>Lifeguard, Swim Instructor, Lifeguard Instructor</h4>
+                    <h4>Lifeguard, Swim Instructor, Lifeguard Instructor <i class="fas fa-arrow-right"></i></h4>
                     <p class="details">Gwinnett County Parks and Recreation, Lilburn, Georgia | May 2022 - Present</p>
                     <p>Enforced safety protocols and monitored swimming area. Planned and conducted courses for lifeguard certification.</p>
                     <div>
@@ -277,7 +272,7 @@
                     </div>
                 </div>
                 <div class="experience-item">
-                    <h4>Co-Founder</h4>
+                    <h4>Co-Founder <i class="fas fa-arrow-right"></i></h4>
                     <p class="details">Posteries, Atlanta, Georgia | August 2022 - February 2023</p>
                     <p>Co-founded an entrepreneurial venture, focusing on financial management. Developed internal applications using no-code tools.</p>
                     <div>
@@ -287,7 +282,7 @@
                     </div>
                 </div>
                 <div class="experience-item">
-                    <h4>Head Coach / Manager</h4>
+                    <h4>Head Coach / Manager <i class="fas fa-arrow-right"></i></h4>
                     <p class="details">Gwinnett County Swim League, Lilburn, Georgia | April 2022 - August 2022</p>
                     <p>Managed a team of 9 assistant coaches. Spearheaded interactions with parents and stakeholders.</p>
                     <div>
@@ -297,7 +292,7 @@
                     </div>
                 </div>
                 <div class="experience-item">
-                    <h4>Facilities Associate</h4>
+                    <h4>Facilities Associate <i class="fas fa-arrow-right"></i></h4>
                     <p class="details">Topgolf, Atlanta, Georgia | November 2021 - May 2022</p>
                     <p>Ensured optimal facility efficiency and guest satisfaction. Collaborated with a multidisciplinary team of 12.</p>
                     <div>
@@ -309,17 +304,17 @@
             </section>
 
             <section id="projects" class="projects-section">
-                <h3>Projects <i class="fas fa-arrow-right"></i></h3>
+                <h3>Projects</h3>
                 <div class="project-item">
-                    <h4>Adversarial AI Detector Attack</h4>
+                    <h4>Adversarial AI Detector Attack <i class="fas fa-arrow-right"></i></h4>
                     <p>Implemented an attack on AI detectors based on academic research, exploring vulnerabilities in AI detection systems.</p>
                 </div>
                 <div class="project-item">
-                    <h4>Text Style Transfer using RepEng</h4>
+                    <h4>Text Style Transfer using RepEng <i class="fas fa-arrow-right"></i></h4>
                     <p>Developed a project utilizing RepEng for text style transfer, demonstrating proficiency in natural language processing techniques.</p>
                 </div>
                 <div class="project-item">
-                    <h4>Dynamic Browser Content</h4>
+                    <h4>Dynamic Browser Content <i class="fas fa-arrow-right"></i></h4>
                     <p>Created a tool to generate dynamic content based on browser interactions, showcasing web development and user experience skills.</p>
                 </div>
             </section>

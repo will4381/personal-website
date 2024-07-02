@@ -309,11 +309,11 @@
         }
 
         .disco-mode {
-            animation: subtle-bg-shift 10s infinite;
+    transition: background-color 2s ease, color 2s ease;
         }
 
         .disco-mode h1, .disco-mode h3 {
-            animation: subtle-text-shift 10s infinite;
+            transition: color 2s ease, text-shadow 2s ease;
         }
 
         @keyframes subtle-bg-shift {
@@ -521,21 +521,32 @@
         // Disco mode
         const discoToggle = document.getElementById('disco-mode');
         const discoColors = ['#0a1525', '#0a1825', '#0a1528', '#0a1725'];
+        const discoTextColors = ['#d4d4d4', '#d4d8d4', '#d4d4d8', '#d8d4d4'];
         let discoInterval;
-    
+
         function startDisco() {
             let index = 0;
             discoInterval = setInterval(() => {
                 document.body.style.backgroundColor = discoColors[index];
+                document.body.style.color = discoTextColors[index];
+                document.querySelectorAll('h1, h3').forEach(element => {
+                    element.style.color = discoTextColors[(index + 1) % discoTextColors.length];
+                    element.style.textShadow = `0 0 10px ${discoTextColors[(index + 1) % discoTextColors.length]}50`;
+                });
                 index = (index + 1) % discoColors.length;
             }, 2000);
         }
-    
+
         function stopDisco() {
             clearInterval(discoInterval);
             document.body.style.backgroundColor = '';
+            document.body.style.color = '';
+            document.querySelectorAll('h1, h3').forEach(element => {
+                element.style.color = '';
+                element.style.textShadow = '';
+            });
         }
-    
+
         discoToggle.addEventListener('change', () => {
             if (discoToggle.checked) {
                 document.body.classList.add('disco-mode');

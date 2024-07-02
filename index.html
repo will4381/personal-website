@@ -470,38 +470,63 @@
         const discoColors = ['255, 0, 0', '0, 255, 0', '0, 0, 255', '255, 255, 0', '255, 0, 255', '0, 255, 255'];
         let discoInterval;
         let isDiscoMode = false;
-    
-        function updateSpotlight(e, color = '255, 255, 255') {
+        let currentColor = '255, 255, 255';
+        let targetColor = '255, 255, 255';
+
+        function lerp(start, end, t) {
+            return start * (1 - t) + end * t;
+        }
+
+        function lerpColor(color1, color2, t) {
+            const rgb1 = color1.split(',').map(Number);
+            const rgb2 = color2.split(',').map(Number);
+            return rgb1.map((c, i) => Math.round(lerp(c, rgb2[i], t))).join(', ');
+        }
+
+        function updateSpotlight(e) {
             spotlight.style.background = `
                 radial-gradient(
-                    circle 400px at ${e.clientX}px ${e.clientY}px, 
-                    rgba(${color}, 0.05) 0%, 
+                    circle 400px at ${e.clientX}px ${e.clientY}px}, 
+                    rgba(${currentColor}, 0.05) 0%, 
                     rgba(10, 15, 28, 0) 70%
                 )
             `;
             spotlight.style.filter = 'blur(60px)';
         }
-    
-        document.addEventListener('mousemove', (e) => {
-            if (!isDiscoMode) {
-                updateSpotlight(e);
-            }
-        });
-    
+
+        document.addEventListener('mousemove', updateSpotlight);
+
         function startDisco() {
             let index = 0;
             discoInterval = setInterval(() => {
-                const color = discoColors[index];
-                updateSpotlight({ clientX: window.innerWidth / 2, clientY: window.innerHeight / 2 }, color);
+                targetColor = discoColors[index];
                 index = (index + 1) % discoColors.length;
-            }, 1000);
+            }, 2000);
+
+            function animate() {
+                if (isDiscoMode) {
+                    currentColor = lerpColor(currentColor, targetColor, 0.05);
+                    requestAnimationFrame(animate);
+                }
+            }
+            animate();
         }
-    
+
         function stopDisco() {
             clearInterval(discoInterval);
-            updateSpotlight({ clientX: window.innerWidth / 2, clientY: window.innerHeight / 2 });
+            targetColor = '255, 255, 255';
+
+            function animate() {
+                if (!isDiscoMode) {
+                    currentColor = lerpColor(currentColor, targetColor, 0.05);
+                    if (currentColor !== targetColor) {
+                        requestAnimationFrame(animate);
+                    }
+                }
+            }
+            animate();
         }
-    
+
         discoToggle.addEventListener('change', () => {
             isDiscoMode = discoToggle.checked;
             if (isDiscoMode) {

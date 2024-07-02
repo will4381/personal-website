@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Will Kusch - Portfolio</title>
+    <title>Will Kusch</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-okaidia.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-javascript.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 
@@ -141,7 +145,7 @@
         }
 
         section {
-            margin-bottom: 3rem;
+            margin-bottom: 5rem;
         }
 
         h3 {
@@ -232,7 +236,7 @@
 
         .code-preview pre {
             max-height: 300px;
-            overflow-y: auto;
+            overflow: hidden;
         }
 
         .github-overlay {
@@ -309,8 +313,8 @@
         }
 
         .credit {
-            margin-top: 1rem;
-            font-size: 0.8rem;
+            margin-top: 0.5rem;
+            font-size: 0.6rem;
             color: var(--secondary-color);
         }
 
@@ -336,7 +340,7 @@
     <div class="container">
         <div class="left-column">
             <h1>Will Kusch</h1>
-            <p>Building engaging digital experiences with a unique perspective.</p>
+            <p>Building whatever I think is cool and useful.</p>
             <nav>
                 <ul>
                     <li><a href="#about">ABOUT</a></li>
@@ -346,8 +350,8 @@
             </nav>
             <div class="social-links">
                 <a href="mailto:will@relativecompanies.com" title="Email"><i class="fas fa-envelope"></i></a>
-                <a href="https://github.com/yourusername" title="GitHub" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://twitter.com/yourusername" title="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://github.com/will4381" title="GitHub" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://twitter.com/hellakusch" title="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
                 <a href="https://www.linkedin.com/in/willkusch/" title="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
                 <div class="disco-toggle">
                     <label for="disco-mode">
@@ -362,85 +366,148 @@
         </div>
         <div class="right-column">
             <section id="about">
-                <p>I'm an <strong>accounting student</strong> at Georgia State University with a passion for <strong>data analytics</strong>, <strong>entrepreneurship</strong>, and <strong>technology</strong>. My diverse skill set spans from <strong>financial analysis</strong> to <strong>programming</strong>, and I'm always eager to take on new challenges.</p>
+                <p>Hi, I'm <strong>Will</strong>! I'm really passionate about a few things, and one of them is building cool projects I'm passionate about. I started in <strong>SaaS</strong> about two years ago, pivoting after an e-commerce exit, and have been in a constant state of learning. Some of my strong suits are building beautiful <strong>UI/UX</strong>, <strong>AI</strong>, and <strong>Python</strong>. I mainly just like creating solutions to problems I encounter—kinda cliche, but it's true.</p>
+                <p>In my two years, my thesis of building cool projects has evolved—not in the desire to build, but in what I build. My early projects involved very little market research; that changed with <strong>Style Mime</strong>, when I realized the importance of a truly receptive target market. Feel free to reach out. Cheers!</p>
             </section>
 
             <section id="experience" class="experience-section">
                 <h3>Experience</h3>
-                <div class="experience-item" data-url="https://example.com/lifeguard">
-                    <h4>Lifeguard, Swim Instructor, Lifeguard Instructor <i class="fas fa-arrow-right"></i></h4>
-                    <p class="details">Gwinnett County Parks and Recreation, Lilburn, Georgia | May 2022 - Present</p>
-                    <p>Enforced safety protocols and monitored swimming area. Planned and conducted courses for lifeguard certification.</p>
+                <div class="experience-item" data-url="https://statglide.com">
+                    <h4>Statglide <i class="fas fa-arrow-right"></i></h4>
+                    <p class="details">Analytics Tool | May 2023 </p>
+                    <p>Used a wide range of APIs to pull data and populate it in a user dashboard, as well as functionality to allow users to generate reports.</p>
                     <div>
-                        <span class="tag">Safety Management</span>
-                        <span class="tag">Instruction</span>
-                        <span class="tag">Leadership</span>
+                        <span class="tag">APIs</span>
+                        <span class="tag">Firebase</span>
+                        <span class="tag">Flutter UI</span>
                     </div>
                 </div>
-                <div class="experience-item" data-url="https://example.com/posteries">
-                    <h4>Co-Founder <i class="fas fa-arrow-right"></i></h4>
-                    <p class="details">Posteries, Atlanta, Georgia | August 2022 - February 2023</p>
-                    <p>Co-founded an entrepreneurial venture, focusing on financial management. Developed internal applications using no-code tools.</p>
+                <div class="experience-item" data-url="https://getposteries.com">
+                    <h4>Co-Founder of Posteries <i class="fas fa-arrow-right"></i></h4>
+                    <p class="details">Custom Posters | August 2022 </p>
+                    <p>Co-founded a poster store with completely organic marketing, focusing on SEO. Sold the store and its assets in 6 of launching.</p>
                     <div>
-                        <span class="tag">Entrepreneurship</span>
-                        <span class="tag">Financial Management</span>
-                        <span class="tag">No-Code Development</span>
+                        <span class="tag">E-Commerce</span>
+                        <span class="tag">Organic Marketing</span>
+                        <span class="tag">Business Development</span>
                     </div>
                 </div>
-                <div class="experience-item" data-url="https://example.com/swim-league">
-                    <h4>Head Coach / Manager <i class="fas fa-arrow-right"></i></h4>
-                    <p class="details">Gwinnett County Swim League, Lilburn, Georgia | April 2022 - August 2022</p>
-                    <p>Managed a team of 9 assistant coaches. Spearheaded interactions with parents and stakeholders.</p>
+                <div class="experience-item" data-url="https://stylemime.com">
+                    <h4>Style Mime <i class="fas fa-arrow-right"></i></h4>
+                    <p class="details">Artificial Intelligence | January 2024 </p>
+                    <p>Still in development. Utilizing advanced techniques to mimic a users style on a minimal dataset, all while fooling AI detectors.</p>
                     <div>
-                        <span class="tag">Team Management</span>
-                        <span class="tag">Leadership</span>
-                        <span class="tag">Stakeholder Communication</span>
-                    </div>
-                </div>
-                <div class="experience-item" data-url="https://example.com/topgolf">
-                    <h4>Facilities Associate <i class="fas fa-arrow-right"></i></h4>
-                    <p class="details">Topgolf, Atlanta, Georgia | November 2021 - May 2022</p>
-                    <p>Ensured optimal facility efficiency and guest satisfaction. Collaborated with a multidisciplinary team of 12.</p>
-                    <div>
-                        <span class="tag">Facility Management</span>
-                        <span class="tag">Customer Service</span>
-                        <span class="tag">Team Collaboration</span>
+                        <span class="tag">Artificial Intelligence</span>
+                        <span class="tag">Google Cloud</span>
+                        <span class="tag">Flutter UI</span>
                     </div>
                 </div>
             </section>
 
             <section id="projects" class="projects-section">
-                <h3>Projects</h3>
-                <div class="project-item" data-url="https://github.com/yourusername/adversarial-ai-detector">
-                    <h4>Adversarial AI Detector Attack <i class="fas fa-arrow-right"></i></h4>
+                <h3>Public Projects</h3>
+                <div class="project-item" data-url="https://github.com/will4381/adversarial-ai-detector-attack">
+                    <h4>Adversarial AI Detector Attack </h4>
                     <p>Implemented an attack on AI detectors based on academic research, exploring vulnerabilities in AI detection systems.</p>
                     <div class="code-preview">
-                        <pre><code>
-// Code preview will be added later
+                        <pre><code class="language-python">
+import requests
+import torch
+from transformers import BertTokenizer, BertForSequenceClassification, pipeline
+from torch.nn.functional import softmax
+from dotenv import load_dotenv
+import os
+                            
+load_dotenv()
+api_key = os.getenv('gptzero_api_key')
+                            
+# GPT Zero Detector - Add your API key to .env or swap to another detector
+def ai_detector(generated_text):
+    gptzero_api_key = api_key
+    url = "https://api.gptzero.me/v2/predict/text"
+    payload = {"document": generated_text, "version": "2024-04-04"}
+    headers = {
+        "x-api-key": gptzero_api_key,
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+    }
+    response = requests.post(url, json=payload, headers=headers)
+    if response.status_code == 200:
+        data = response.json()
+            if data['documents']:
+                class_probabilities = data['documents'][0]['class_probabilities']
                         </code></pre>
                         <div class="github-overlay">
                             <span>View on <i class="fab fa-github"></i></span>
                         </div>
                     </div>
                 </div>
-                <div class="project-item" data-url="https://github.com/yourusername/repeng-style-transfer">
-                    <h4>Text Style Transfer using RepEng <i class="fas fa-arrow-right"></i></h4>
+                <div class="project-item" data-url="https://github.com/will4381/repeng-text-style-transfer">
+                    <h4>Text Style Transfer using RepEng </h4>
                     <p>Developed a project utilizing RepEng for text style transfer, demonstrating proficiency in natural language processing techniques.</p>
                     <div class="code-preview">
-                        <pre><code>
-// Code preview will be added later
+                        <pre><code class="language-python">
+import json
+import random
+import numpy as np
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+import nltk
+from sentence_transformers import SentenceTransformer
+from sklearn.metrics.pairwise import cosine_similarity
+from sklearn.decomposition import PCA
+from typing import List
+from transformers import AutoModelForCausalLM, AutoTokenizer, PreTrainedModel, PreTrainedTokenizerBase, BitsAndBytesConfig
+from tqdm import tqdm
+import gc
+from nltk.tokenize import word_tokenize
+from nltk.translate.bleu_score import sentence_bleu
+
+nltk.download('punkt', quiet=True)
+
+class DatasetEntry:
+    def __init__(self, positive, negative):
+        self.positive = positive
+        self.negative = negative
+
+# Repeng library modifications
                         </code></pre>
                         <div class="github-overlay">
                             <span>View on <i class="fab fa-github"></i></span>
                         </div>
                     </div>
                 </div>
-                <div class="project-item" data-url="https://github.com/yourusername/dynamic-browser-content">
-                    <h4>Dynamic Browser Content <i class="fas fa-arrow-right"></i></h4>
+                <div class="project-item" data-url="https://github.com/will4381/dynamic-content-from-browser-cookies">
+                    <h4>Dynamic Browser Content </h4>
                     <p>Created a tool to generate dynamic content based on browser interactions, showcasing web development and user experience skills.</p>
                     <div class="code-preview">
-                        <pre><code>
-// Code preview will be added later
+                        <pre><code class="language-javascript">
+const express = require('express');
+const cookieParser = require('cookie-parser');
+const Groq = require('groq-sdk');
+
+const app = express();
+app.use(cookieParser());
+
+const groq = new Groq({
+    apiKey: '',
+});
+
+// Endpoint to set cookies
+app.get('/set-cookies', (req, res) => {
+    // Set different cookies for testing
+    res.cookie('userID', '12345');
+    res.cookie('favoriteColor', 'blue');
+    res.cookie('preferredLanguage', 'en');
+    res.cookie('location', 'New York');
+    res.cookie('lastVisited', '2023-06-02');
+    res.send('Cookies set successfully!');
+});
+
+// Main page
+app.get('/', async (req, res) => {
+    const startTime = Date.now();                            
                         </code></pre>
                         <div class="github-overlay">
                             <span>View on <i class="fab fa-github"></i></span>
@@ -554,6 +621,7 @@
                 }
                 preview.style.display = 'block';
                 activePreview = preview;
+                Prism.highlightAll();
             });
         });
     

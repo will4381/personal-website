@@ -465,16 +465,50 @@
     </div>
 
     <script>
-        document.addEventListener('mousemove', (e) => {
-            const spotlight = document.querySelector('.spotlight');
+        const spotlight = document.querySelector('.spotlight');
+        const discoToggle = document.getElementById('disco-mode');
+        const discoColors = ['255, 0, 0', '0, 255, 0', '0, 0, 255', '255, 255, 0', '255, 0, 255', '0, 255, 255'];
+        let discoInterval;
+        let isDiscoMode = false;
+    
+        function updateSpotlight(e, color = '255, 255, 255') {
             spotlight.style.background = `
                 radial-gradient(
                     circle 400px at ${e.clientX}px ${e.clientY}px, 
-                    rgba(255, 255, 255, 0.05) 0%, 
+                    rgba(${color}, 0.05) 0%, 
                     rgba(10, 15, 28, 0) 70%
                 )
             `;
             spotlight.style.filter = 'blur(60px)';
+        }
+    
+        document.addEventListener('mousemove', (e) => {
+            if (!isDiscoMode) {
+                updateSpotlight(e);
+            }
+        });
+    
+        function startDisco() {
+            let index = 0;
+            discoInterval = setInterval(() => {
+                const color = discoColors[index];
+                updateSpotlight({ clientX: window.innerWidth / 2, clientY: window.innerHeight / 2 }, color);
+                index = (index + 1) % discoColors.length;
+            }, 1000);
+        }
+    
+        function stopDisco() {
+            clearInterval(discoInterval);
+            updateSpotlight({ clientX: window.innerWidth / 2, clientY: window.innerHeight / 2 });
+        }
+    
+        discoToggle.addEventListener('change', () => {
+            isDiscoMode = discoToggle.checked;
+            if (isDiscoMode) {
+                startDisco();
+            } else {
+                stopDisco();
+            }
         });
     
         document.querySelectorAll('nav a').forEach(anchor => {
@@ -516,45 +550,6 @@
                 preview.style.display = 'block';
                 activePreview = preview;
             });
-        });
-    
-        // Disco mode
-        const discoToggle = document.getElementById('disco-mode');
-        const discoColors = ['#0a1525', '#0a1825', '#0a1528', '#0a1725'];
-        const discoTextColors = ['#d4d4d4', '#d4d8d4', '#d4d4d8', '#d8d4d4'];
-        let discoInterval;
-
-        function startDisco() {
-            let index = 0;
-            discoInterval = setInterval(() => {
-                document.body.style.backgroundColor = discoColors[index];
-                document.body.style.color = discoTextColors[index];
-                document.querySelectorAll('h1, h3').forEach(element => {
-                    element.style.color = discoTextColors[(index + 1) % discoTextColors.length];
-                    element.style.textShadow = `0 0 10px ${discoTextColors[(index + 1) % discoTextColors.length]}50`;
-                });
-                index = (index + 1) % discoColors.length;
-            }, 2000);
-        }
-
-        function stopDisco() {
-            clearInterval(discoInterval);
-            document.body.style.backgroundColor = '';
-            document.body.style.color = '';
-            document.querySelectorAll('h1, h3').forEach(element => {
-                element.style.color = '';
-                element.style.textShadow = '';
-            });
-        }
-
-        discoToggle.addEventListener('change', () => {
-            if (discoToggle.checked) {
-                document.body.classList.add('disco-mode');
-                startDisco();
-            } else {
-                document.body.classList.remove('disco-mode');
-                stopDisco();
-            }
         });
     
         // GitHub link

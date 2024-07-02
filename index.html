@@ -333,6 +333,55 @@
                 margin-bottom: 2rem;
             }
         }
+        #contact {
+            margin-top: 5rem;
+        }
+
+        .contact-button {
+            display: block;
+            width: 100%;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--chip-color);
+            color: var(--text-color);
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-button:hover {
+            background-color: var(--text-color);
+            color: var(--bg-color);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+        }
+
+        .contact-subtitle {
+            margin-bottom: 1.5rem;
+            color: var(--secondary-color);
+            text-align: left;
+        }
+
+        .typing-animation {
+            overflow: hidden;
+            border-right: 0.15em solid var(--text-color);
+            white-space: nowrap;
+            margin: 0;
+            letter-spacing: 0.15em;
+            animation: typing 1.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--text-color) }
+        }
     </style>
 </head>
 <body>
@@ -346,6 +395,7 @@
                     <li><a href="#about">ABOUT</a></li>
                     <li><a href="#experience">EXPERIENCE</a></li>
                     <li><a href="#projects">PROJECTS</a></li>
+                    <li><a href="#contact">CONTACT</a></li>
                 </ul>
             </nav>
             <div class="social-links">
@@ -366,8 +416,9 @@
         </div>
         <div class="right-column">
             <section id="about">
-                <p>Hi, I'm <strong>Will</strong>! I'm really passionate about a few things, and one of them is building cool projects I'm passionate about. I started in <strong>SaaS</strong> about two years ago, pivoting after an e-commerce exit, and have been in a constant state of learning. Some of my strong suits are building beautiful <strong>UI/UX</strong>, <strong>AI</strong>, and <strong>Python</strong>. I mainly just like creating solutions to problems I encounter—kinda cliche, but it's true.</p>
-                <p>In my two years, my thesis of building cool projects has evolved—not in the desire to build, but in what I build. My early projects involved very little market research; that changed with <strong>Style Mime</strong>, when I realized the importance of a truly receptive target market. Feel free to reach out. Cheers!</p>
+                <p>Hi, I'm <strong>Will</strong>! I'm really <strong>passionate</strong> about a few things, and one of them is <strong>building cool projects</strong> I'm passionate about. I started in <strong>SaaS</strong> about two years ago, pivoting after an <strong>e-commerce exit</strong>, and have been in a constant state of <strong>learning</strong>. Some of my strong suits are building beautiful <strong>UI/UX</strong>, <strong>AI</strong>, and <strong>Python</strong>. I mainly just like creating <strong>solutions to problems</strong> I encounter—kinda cliche, but it's true.</p>
+                <p>In my two years, my thesis of building cool projects has <strong>evolved</strong>—not in the desire to build, but in <strong>what</strong> I build. My early projects involved very little market research; that changed with <strong>Style Mime</strong>, when I realized the importance of a truly <strong>receptive target market</strong>. Feel free to reach out. Cheers!</p>
+                <p>What am I currently looking for? While I work on my <strong>side projects</strong>, I'm looking for a role at a <strong>startup</strong> where I can work with <strong>AI</strong>, <strong>data</strong>, or provide <strong>rich analysis</strong>. I am eager to leverage my skills in <strong>UI/UX design</strong>, <strong>AI</strong>, and <strong>Python</strong> to contribute to <strong>innovative projects</strong>. Ideally, this role would allow me to <strong>collaborate</strong> with a passionate team, tackle <strong>challenging problems</strong>, and make a <strong>meaningful impact</strong>. If you think I could be a good fit for your startup, I'd love to hear from you!</p>
             </section>
 
             <section id="experience" class="experience-section">
@@ -385,7 +436,7 @@
                 <div class="experience-item" data-url="https://getposteries.com">
                     <h4>Co-Founder of Posteries <i class="fas fa-arrow-right"></i></h4>
                     <p class="details">Custom Posters | August 2022 </p>
-                    <p>Co-founded a poster store with completely organic marketing, focusing on SEO. Sold the store and its assets in 6 of launching.</p>
+                    <p>Co-founded a poster store with completely organic marketing, focusing on SEO. Sold the store and its assets within 6 months of launching.</p>
                     <div>
                         <span class="tag">E-Commerce</span>
                         <span class="tag">Organic Marketing</span>
@@ -514,6 +565,10 @@ app.get('/', async (req, res) => {
                         </div>
                     </div>
                 </div>
+            <section id="contact">
+                <h3>What Do You Say, Let's Work Together?</h3>
+                <p class="contact-subtitle">Whether you have a project, a job opportunity, or just want to chat, I'm always excited to connect with people.</p>
+                <a href="mailto:will@relativecompanies.com" class="contact-button">Reach Out to Me</a>
             </section>
         </div>
     </div>
@@ -640,6 +695,32 @@ app.get('/', async (req, res) => {
                 const url = this.getAttribute('data-url');
                 if (url) {
                     window.open(url, '_blank');
+                }
+            });
+        });
+        // Typing animation for code blocks
+        function startTypingAnimation(element) {
+            const text = element.textContent;
+            element.textContent = '';
+            element.classList.add('typing-animation');
+            let i = 0;
+            const typingInterval = setInterval(() => {
+                if (i < text.length) {
+                    element.textContent += text.charAt(i);
+                    i++;
+                } else {
+                    clearInterval(typingInterval);
+                    element.classList.remove('typing-animation');
+                }
+            }, 20);
+        }
+
+        // Start typing animation when code preview is shown
+        document.querySelectorAll('.project-item').forEach(item => {
+            const preview = item.querySelector('.code-preview pre code');
+            item.addEventListener('mouseenter', () => {
+                if (preview && !preview.classList.contains('typing-animation')) {
+                    startTypingAnimation(preview);
                 }
             });
         });

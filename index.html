@@ -456,31 +456,65 @@
         const discoToggle = document.getElementById('disco-mode');
         const discoColors = ['255, 0, 0', '0, 255, 0', '0, 0, 255', '255, 255, 0', '255, 0, 255', '0, 255, 255'];
         let isDiscoMode = false;
-    
+        let currentColorIndex = 0;
+        let nextColorIndex = 1;
+        let colorTransition = 0;
+
         function updateSpotlight(e, color = '255, 255, 255') {
             spotlight.style.background = `
                 radial-gradient(
                     circle 400px at ${e.clientX}px ${e.clientY}px, 
-                    rgba(${color}, 0.05) 0%, 
+                    rgba(${color}, 0.15) 0%, 
                     rgba(10, 15, 28, 0) 70%
                 )
             `;
             spotlight.style.filter = 'blur(60px)';
         }
-    
+
+        function interpolateColor(color1, color2, factor) {
+            const result = color1.split(',').map((c, i) => {
+                return Math.round(parseInt(c) * (1 - factor) + parseInt(color2.split(',')[i]) * factor);
+            }).join(',');
+            return result;
+        }
+
+        function animateDisco() {
+            if (!isDiscoMode) return;
+
+            colorTransition += 0.02;
+            if (colorTransition >= 1) {
+                colorTransition = 0;
+                currentColorIndex = nextColorIndex;
+                nextColorIndex = (nextColorIndex + 1) % discoColors.length;
+            }
+
+            const interpolatedColor = interpolateColor(
+                discoColors[currentColorIndex],
+                discoColors[nextColorIndex],
+                colorTransition
+            );
+
+            updateSpotlight({ clientX: lastX, clientY: lastY }, interpolatedColor);
+            requestAnimationFrame(animateDisco);
+        }
+
+        let lastX = window.innerWidth / 2;
+        let lastY = window.innerHeight / 2;
+
         document.addEventListener('mousemove', (e) => {
-            if (isDiscoMode) {
-                const randomColor = discoColors[Math.floor(Math.random() * discoColors.length)];
-                updateSpotlight(e, randomColor);
-            } else {
+            lastX = e.clientX;
+            lastY = e.clientY;
+            if (!isDiscoMode) {
                 updateSpotlight(e);
             }
         });
-    
+
         discoToggle.addEventListener('change', () => {
             isDiscoMode = discoToggle.checked;
-            if (!isDiscoMode) {
-                updateSpotlight({ clientX: window.innerWidth / 2, clientY: window.innerHeight / 2 });
+            if (isDiscoMode) {
+                animateDisco();
+            } else {
+                updateSpotlight({ clientX: lastX, clientY: lastY });
             }
         });
     

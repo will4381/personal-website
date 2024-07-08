@@ -565,6 +565,43 @@ app.get('/', async (req, res) => {
                         </div>
                     </div>
                 </div>
+                <div class="project-item" data-url="https://github.com/will4381/ai-detection-analysis">
+                    <h4>Analyzing What Makes Text Human </h4>
+                    <p>Did thorough deep learning and statistical analysis to determine what makes text human in the eyes of an AI detector.</p>
+                    <div class="code-preview">
+                        <pre><code class="language-python">
+import pandas as pd
+import numpy as np
+import torch
+import torch.nn as nn
+import torch.optim as optim
+from torch.utils.data import Dataset, DataLoader
+import torch.nn.functional as F
+from torch.utils.data import DataLoader, TensorDataset
+from torch.cuda.amp import autocast, GradScaler
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.decomposition import PCA
+from transformers import BertTokenizer, BertModel
+import spacy
+import nltk
+from nltk.tokenize import word_tokenize
+from nltk.tag import pos_tag
+from nltk.corpus import wordnet
+import re
+from tqdm import tqdm
+from textstat import textstat
+from collections import Counter
+import scipy.stats as stats
+import ast
+import seaborn as sns
+import matplotlib.pyplot as plt                         
+                        </code></pre>
+                        <div class="github-overlay">
+                            <span>View on <i class="fab fa-github"></i></span>
+                        </div>
+                    </div>
+                </div>
             <section id="contact">
                 <h3>What Do You Say, Let's Work Together?</h3>
                 <p class="contact-subtitle">Whether you have a project, a job opportunity, or just want to chat, I'm always excited to connect with people.</p>

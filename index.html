@@ -638,6 +638,41 @@ def int_add(a, b):
                         </div>
                     </div>
                 </div>
+                    <h4>Betting on Procrastination </h4>
+                    <p>Created a basic algorithm and Tkinter UI to validate the idea of betting on assignment procrastination.</p>
+                    <div class="code-preview">
+                        <pre><code class="language-python">
+from datetime import datetime, timedelta
+import random
+import logging
+
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
+class Assignment:
+    def __init__(self, id: str, name: str, open_date: datetime, due_date: datetime):
+        self.id = id
+        self.name = name
+        self.open_date = open_date
+        self.due_date = due_date
+        self.bets = []
+
+class Bet:
+    def __init__(self, user, amount: float, selected_date: datetime, assignments):
+        self.user = user
+        self.amount = amount
+        self.selected_date = selected_date
+        self.assignments = assignments
+        self.completed = False
+        self.potential_return = None
+
+class User:
+    def __init__(self, name: str, balance: float):                       
+                    </code></pre>
+                    <div class="github-overlay">
+                        <span>View on <i class="fab fa-github"></i></span>
+                    </div>
+                </div>
+            </div>
             <section id="contact">
                 <h3>What Do You Say, Let's Work Together?</h3>
                 <p class="contact-subtitle">Whether you have a project, a job opportunity, or just want to chat, I'm always excited to connect with people.</p>

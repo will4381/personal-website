@@ -638,41 +638,41 @@ def int_add(a, b):
                         </div>
                     </div>
                     <div class="project-item" data-url="https://github.com/will4381/repeng-text-style-transfer">
-                        <h4>Text Style Transfer using RepEng </h4>
-                        <p>Developed a project utilizing RepEng for text style transfer, demonstrating proficiency in natural language processing techniques.</p>
+                        <h4>Betting on Assignment Procrastination </h4>
+                        <p>Developed a basic algorithm and Tkinter UI to validate the idea of betting on assigment procrastination.</p>
                         <div class="code-preview">
                             <pre><code class="language-python">
-import json
+from datetime import datetime, timedelta
 import random
-import numpy as np
-import torch
-import torch.nn as nn
-import torch.nn.functional as F
-import nltk
-from sentence_transformers import SentenceTransformer
-from sklearn.metrics.pairwise import cosine_similarity
-from sklearn.decomposition import PCA
-from typing import List
-from transformers import AutoModelForCausalLM, AutoTokenizer, PreTrainedModel, PreTrainedTokenizerBase, BitsAndBytesConfig
-from tqdm import tqdm
-import gc
-from nltk.tokenize import word_tokenize
-from nltk.translate.bleu_score import sentence_bleu
+import logging
 
-nltk.download('punkt', quiet=True)
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-class DatasetEntry:
-    def __init__(self, positive, negative):
-        self.positive = positive
-        self.negative = negative
+class Assignment:
+    def __init__(self, id: str, name: str, open_date: datetime, due_date: datetime):
+        self.id = id
+        self.name = name
+        self.open_date = open_date
+        self.due_date = due_date
+        self.bets = []
 
-# Repeng library modifications
-                            </code></pre>
-                            <div class="github-overlay">
-                                <span>View on <i class="fab fa-github"></i></span>
-                            </div>
-                        </div>
+class Bet:
+    def __init__(self, user, amount: float, selected_date: datetime, assignments):
+        self.user = user
+        self.amount = amount
+        self.selected_date = selected_date
+        self.assignments = assignments
+        self.completed = False
+        self.potential_return = None
+
+class User:
+    def __init__(self, name: str, balance: float):
+                    </code></pre>
+                    <div class="github-overlay">
+                        <span>View on <i class="fab fa-github"></i></span>
                     </div>
+                </div>
+            </div>
             <section id="contact">
                 <h3>What Do You Say, Let's Work Together?</h3>
                 <p class="contact-subtitle">Whether you have a project, a job opportunity, or just want to chat, I'm always excited to connect with people.</p>

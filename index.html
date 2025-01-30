@@ -18,35 +18,42 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            min-height: 90vh;
         }
         .container {
             font-family: 'JetBrains Mono', monospace;
             padding: 20px;
             color: #ffffff;
             display: flex;
-            align-items: center;
-            gap: 5px;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+            max-width: 600px;
+            margin: 0 auto;
+            margin-top: -5vh;
         }
         .profile-img {
             width: 200px;
             height: 200px;
             display: block;
+            margin-left: -10px;
         }
         .content {
             display: flex;
             flex-direction: column;
+            align-items: flex-start;
+            width: 100%;
         }
         h1 {
             margin: 0 0 15px;
             font-size: 2.5em;
-
         }
         .links {
             margin-top: 0;
             display: flex;
             flex-wrap: wrap;
-            gap: 15px;
-            max-width: 600px;
+            gap: 12px;
+            width: 100%;
         }
         .links a {
             color: #ffffff;

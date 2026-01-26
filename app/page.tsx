@@ -1,3 +1,4 @@
+import LetterboxdRecent from "@/components/LetterboxdRecent";
 import SpotifyRecentEmbed from "@/components/SpotifyRecentEmbed";
 import styles from "./page.module.css";
 
@@ -17,8 +18,15 @@ export default function Home() {
           <a href="https://www.instagram.com/nocode.alex/" target="_blank" rel="noreferrer">
             Alex Heiden
           </a>
-          , and working on a new mobile app (shhh).
+          , working on a new mobile app (shhh), and writing movie reviews. Here is my most recent review!
         </p>
+      </div>
+
+      <section className={styles.section}>
+        <LetterboxdRecent />
+      </section>
+
+      <div className={styles.prose}>
         <p>
           Things I've learned: it's really easy to just build, build, build, but hard to stop and listen to users. What's
           the point of building anything if no one is asking for it? Talking to people beats intuition most of the time

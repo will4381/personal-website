@@ -79,8 +79,9 @@ const getRecentTrackEmbedUrl = async (accessToken: string) => {
 
 export async function GET() {
   if (process.env.NODE_ENV === "production") {
-    const origin = headers.get("origin");
-    const referer = headers.get("referer");
+    const requestHeaders = await headers();
+    const origin = requestHeaders.get("origin");
+    const referer = requestHeaders.get("referer");
     const originAllowed = origin ? ALLOWED_ORIGINS.has(origin) : false;
     let refererAllowed = false;
     if (referer) {

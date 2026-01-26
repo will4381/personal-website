@@ -1,3 +1,4 @@
+import { headers } from "next/headers";
 import { NextResponse } from "next/server";
 
 export const runtime = "nodejs";
@@ -6,6 +7,12 @@ export const dynamic = "force-dynamic";
 const TOKEN_ENDPOINT = "https://accounts.spotify.com/api/token";
 const CURRENTLY_PLAYING_ENDPOINT = "https://api.spotify.com/v1/me/player/currently-playing";
 const RECENT_ENDPOINT = "https://api.spotify.com/v1/me/player/recently-played?limit=1";
+const ALLOWED_ORIGINS = new Set([
+  "https://willkusch.com",
+  "https://www.willkusch.com",
+  "http://localhost:3000",
+  "http://127.0.0.1:3000",
+]);
 
 const getAccessToken = async () => {
   const clientId =
@@ -14,14 +21,7 @@ const getAccessToken = async () => {
   const refreshToken = process.env.SPOTIFY_REFRESH_TOKEN;
 
   if (!clientId || !clientSecret || !refreshToken) {
-    return {
-      error: "missing_env",
-      missing: {
-        clientId: !clientId,
-        clientSecret: !clientSecret,
-        refreshToken: !refreshToken,
-      },
-    } as const;
+    return { error: "missing_env" } as const;
   }
 
   const basicAuth = Buffer.from(`${clientId}:${clientSecret}`).toString("base64");
@@ -40,8 +40,7 @@ const getAccessToken = async () => {
   });
 
   if (!response.ok) {
-    const details = await response.text();
-    return { error: "token_request_failed", details } as const;
+    return { error: "token_request_failed" } as const;
   }
 
   const payload = (await response.json()) as { access_token?: string };
@@ -79,6 +78,24 @@ const getRecentTrackEmbedUrl = async (accessToken: string) => {
 };
 
 export async function GET() {
+  if (process.env.NODE_ENV === "production") {
+    const origin = headers.get("origin");
+    const referer = headers.get("referer");
+    const originAllowed = origin ? ALLOWED_ORIGINS.has(origin) : false;
+    let refererAllowed = false;
+    if (referer) {
+      try {
+        refererAllowed = ALLOWED_ORIGINS.has(new URL(referer).origin);
+      } catch {
+        refererAllowed = false;
+      }
+    }
+
+    if (!originAllowed && !refererAllowed) {
+      return NextResponse.json({ error: "forbidden" }, { status: 403 });
+    }
+  }
+
   const tokenResult = await getAccessToken();
   if ("error" in tokenResult) {
     return NextResponse.json(tokenResult, { status: 503 });

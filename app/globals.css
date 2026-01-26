@@ -1,0 +1,136 @@
+@font-face {
+  font-family: "Sentient";
+  src: url("/fonts/sentient/Sentient-Extralight.otf") format("opentype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sentient";
+  src: url("/fonts/sentient/Sentient-ExtralightItalic.otf") format("opentype");
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sentient";
+  src: url("/fonts/sentient/Sentient-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sentient";
+  src: url("/fonts/sentient/Sentient-LightItalic.otf") format("opentype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sentient";
+  src: url("/fonts/sentient/Sentient-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sentient";
+  src: url("/fonts/sentient/Sentient-Italic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sentient";
+  src: url("/fonts/sentient/Sentient-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sentient";
+  src: url("/fonts/sentient/Sentient-MediumItalic.otf") format("opentype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sentient";
+  src: url("/fonts/sentient/Sentient-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sentient";
+  src: url("/fonts/sentient/Sentient-BoldItalic.otf") format("opentype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root {
+  --paper: #f7f1e7;
+  --ink: #1a1a1a;
+  --ink-soft: #4b453d;
+  --accent: #6b4f2a;
+  --border: rgba(26, 26, 26, 0.2);
+  --measure: 72ch;
+  --leading: 1.7;
+  --font-body: "Sentient", "Times New Roman", serif;
+  --font-heading: "Sentient", "Times New Roman", serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: var(--leading);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 1px;
+  padding-bottom: 2px;
+  transition: color 160ms ease;
+}
+
+a:hover {
+  color: #12100e;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+::selection {
+  background: rgba(107, 79, 42, 0.2);
+}

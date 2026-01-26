@@ -31,7 +31,7 @@ export default function Home() {
           Things I've learned: it's really easy to just build, build, build, but hard to stop and listen to users. What's
           the point of building anything if no one is asking for it? Talking to people beats intuition most of the time
           when building products. One of my more useful lessons was how fast high-value iteration is. Many of my projects
-          see elements or functions go through 5-6 revisions before they even go live. Mostly because I had no clue what I
+          see elements or functions go through 5-6 revisions before they even go live. Mostly because I have no clue what I
           want, but with each iteration I go back to the drawing board with a far better idea. Some of our
           agency clients are blown away when I do our mockups in code compared to Figma. I guess what I'm saying is if
           there is a quicker way to iterate, use that method. I could probably ramble more about things I've learned but

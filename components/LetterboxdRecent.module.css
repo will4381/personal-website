@@ -6,7 +6,7 @@
   background: var(--poster-bg, #fffaf2);
   border: none;
   border-radius: 12px;
-  align-items: start;
+  align-items: center;
   position: relative;
   overflow: hidden;
   color: #ffffff;
@@ -85,10 +85,10 @@
 
 @media (max-width: 720px) {
   .card {
-    grid-template-columns: 1fr;
+    grid-template-columns: 88px 1fr;
   }
 
   .posterWrap {
-    max-width: 220px;
+    max-width: none;
   }
 }

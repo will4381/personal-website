@@ -46,7 +46,7 @@ export default function Home() {
           creative and brand identity? This has been a question I've been exploring for a while and it just now feels like
           I'm gaining traction. Outside of design, my main focus lies in creating unique experiences no one thought
           possible (remember that mobile app from earlier...). I'm sure in a few months I'll have another idea worth adding
-          here but for now that's where my focus lies this year. If any of that sounds interesting, be a friend and reach
+          here, but for now that's where my focus lies. If any of that sounds interesting, be a friend and reach
           out. Oh, and here's what I'm listening to right now.
         </p>
       </div>

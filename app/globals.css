@@ -88,6 +88,7 @@
   --leading: 1.7;
   --font-body: "Sentient", "Times New Roman", serif;
   --font-heading: "Sentient", "Times New Roman", serif;
+  --font-display: var(--font-im-fell-english), "Times New Roman", serif;
 }
 
 * {

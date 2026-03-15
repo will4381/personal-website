@@ -1,10 +1,19 @@
 import type { Metadata } from "next";
+import { IM_Fell_English } from "next/font/google";
 import "./globals.css";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://willkusch.com";
 const title = "Will Kusch";
 const description =
   "Notes, projects, and what I'm working on now.";
+
+const imFellEnglish = IM_Fell_English({
+  weight: "400",
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-im-fell-english",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -52,7 +61,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={imFellEnglish.variable}>
       <body>{children}</body>
     </html>
   );

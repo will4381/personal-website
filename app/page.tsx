@@ -88,7 +88,61 @@ export default function Home() {
         </p>
       </div>
 
-      <div className={styles.footerSection}>
+      <div className={`${styles.prose} ${styles.spacedSection}`}>
+        <p>
+          If you&apos;re here to see some of my work, you&apos;re in luck. Here are a few things I&apos;ve built for clients
+          and for myself.
+        </p>
+        <p>
+          A few examples:{" "}
+          <a href="https://convuu.com" target="_blank" rel="noreferrer">
+            Convuu
+          </a>
+          ,{" "}
+          <a href="https://tryscrollapp.com" target="_blank" rel="noreferrer">
+            Scroll
+          </a>
+          ,{" "}
+          <a href="https://tryproofs.app" target="_blank" rel="noreferrer">
+            Proofs
+          </a>
+          ,{" "}
+          <a href="https://flagship.foundr.com" target="_blank" rel="noreferrer">
+            Foundr Flagship
+          </a>
+          ,{" "}
+          <a href="https://operators.foundr.com" target="_blank" rel="noreferrer">
+            Foundr Operators
+          </a>
+          ,{" "}
+          <a href="https://chuurn.com" target="_blank" rel="noreferrer">
+            Chuurn
+          </a>
+          ,{" "}
+          <a href="https://reels.relativecompanies.com" target="_blank" rel="noreferrer">
+            Relative Reels
+          </a>
+          ,{" "}
+          <a href="https://paidinfull.vip" target="_blank" rel="noreferrer">
+            Paid in Full
+          </a>
+          ,{" "}
+          <a href="https://fivemin.app" target="_blank" rel="noreferrer">
+            Five Min
+          </a>
+          ,{" "}
+          <a href="https://statglide.com" target="_blank" rel="noreferrer">
+            Statglide
+          </a>
+          ,{" "}
+          <a href="https://www.relativum.com/" target="_blank" rel="noreferrer">
+            Relativum
+          </a>
+          , and more.
+        </p>
+      </div>
+
+      <div className={styles.spacedSection}>
         <p className={styles.footerLead}>
           If you somehow made it all the way down here and want to chat, reach me{" "}
           <a href="mailto:will@relativecompanies.com">here</a>. You can also find me on{" "}
@@ -110,7 +164,7 @@ export default function Home() {
           . Goodbye, for now!
         </p>
         <p className={`${styles.footerLead} ${styles.lastUpdated}`}>
-          Last updated: March 14th, 2026
+          Last updated: March 23rd, 2026
         </p>
       </div>
     </main>

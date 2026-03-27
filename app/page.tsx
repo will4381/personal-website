@@ -164,7 +164,10 @@ export default function Home() {
           . Goodbye, for now!
         </p>
         <p className={`${styles.footerLead} ${styles.lastUpdated}`}>
-          Last updated: March 23rd, 2026
+          Last updated: March 26th, 2026
+        </p>
+        <p className={`${styles.footerLead} ${styles.lastUpdated}`}>
+          Because Katelyn and Tucker told me to add their names here.
         </p>
       </div>
     </main>

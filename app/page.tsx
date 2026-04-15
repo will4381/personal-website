@@ -120,7 +120,7 @@ export default function Home() {
           </a>
           ,{" "}
           <a href="https://reels.relativecompanies.com" target="_blank" rel="noreferrer">
-            Relative Reels
+            Reels
           </a>
           ,{" "}
           <a href="https://paidinfull.vip" target="_blank" rel="noreferrer">
@@ -167,7 +167,7 @@ export default function Home() {
           Last updated: March 28th, 2026
         </p>
         <p className={`${styles.footerLead} ${styles.lastUpdated}`}>
-          Because Katelyn, Tucker, and Kylie told me to add their names here.
+          Because Katelyn, Tucker, Kylie, and Mikayla told me to add their names here.
         </p>
       </div>
     </main>

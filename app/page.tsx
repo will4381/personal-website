@@ -166,9 +166,6 @@ export default function Home() {
         <p className={`${styles.footerLead} ${styles.lastUpdated}`}>
           Last updated: March 28th, 2026
         </p>
-        <p className={`${styles.footerLead} ${styles.lastUpdated}`}>
-          Because Katelyn, Tucker, Kylie, and Mikayla told me to add their names here.
-        </p>
       </div>
     </main>
   );

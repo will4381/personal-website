@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { IM_Fell_English } from "next/font/google";
+import { IM_Fell_English, Source_Serif_4 } from "next/font/google";
 import "./globals.css";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://willkusch.com";
 const title = "Will Kusch";
 const description =
-  "Notes, projects, and what I'm working on now.";
+  "Notes, projects, and current work across Lucra, Runes, and more.";
 
 const imFellEnglish = IM_Fell_English({
   weight: "400",
@@ -13,6 +13,15 @@ const imFellEnglish = IM_Fell_English({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-im-fell-english",
+});
+
+const sourceSerif = Source_Serif_4({
+  weight: "variable",
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-source-serif",
+  axes: ["opsz"],
 });
 
 export const metadata: Metadata = {
@@ -30,8 +39,8 @@ export const metadata: Metadata = {
   },
   keywords: [
     "Will Kusch",
-    "Convuu",
-    "mobile apps",
+    "Lucra",
+    "Runes",
     "web apps",
     "product development",
     "development agency",
@@ -61,7 +70,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={imFellEnglish.variable}>
+    <html lang="en" className={`${imFellEnglish.variable} ${sourceSerif.variable}`}>
       <body>{children}</body>
     </html>
   );

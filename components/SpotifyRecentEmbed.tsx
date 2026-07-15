@@ -36,7 +36,7 @@ export default function SpotifyRecentEmbed() {
         setEmbedUrl(null);
         setIsIdle(true);
       }
-    } catch (error) {
+    } catch {
       setHasError(true);
       setIsIdle(false);
     }

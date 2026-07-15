@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Image from "next/image";
 
 import styles from "./LetterboxdRecent.module.css";
 
@@ -65,7 +66,15 @@ export default function LetterboxdRecent() {
     <article className={styles.card} style={cardStyle}>
       {review.imageUrl ? (
         <a className={styles.posterWrap} href={review.link} target="_blank" rel="noreferrer">
-          <img className={styles.poster} src={review.imageUrl} alt={`${review.filmTitle} poster`} loading="lazy" />
+          <Image
+            className={styles.poster}
+            src={review.imageUrl}
+            alt={`${review.filmTitle} poster`}
+            width={220}
+            height={330}
+            sizes="(max-width: 720px) 88px, 110px"
+            unoptimized
+          />
         </a>
       ) : null}
       <div className={styles.content}>

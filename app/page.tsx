@@ -1,4 +1,5 @@
 import LetterboxdRecent from "@/components/LetterboxdRecent";
+import SnapPurchaseLink from "@/components/SnapPurchaseLink";
 import SpotifyRecentEmbed from "@/components/SpotifyRecentEmbed";
 import styles from "./page.module.css";
 
@@ -84,9 +85,13 @@ export default function Home() {
             nimino
           </a>
           , and{" "}
-          <a href="https://open.spotify.com/artist/0YC192cP3KPCRWx8zr8MfZ" target="_blank" rel="noreferrer">
+          <SnapPurchaseLink
+            href="https://open.spotify.com/artist/0YC192cP3KPCRWx8zr8MfZ"
+            itemCategory="spotify_artist"
+            itemId="0YC192cP3KPCRWx8zr8MfZ"
+          >
             Hans Zimmer
-          </a>
+          </SnapPurchaseLink>
           . That last one will never change.
         </p>
       </div>

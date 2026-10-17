@@ -20,6 +20,33 @@ type LetterboxdReview = {
   watchedDate?: string | null;
 };
 
+const Star = () => (
+  <svg className={styles.star} viewBox="0 0 24 24" aria-hidden="true">
+    <path
+      d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"
+      strokeLinejoin="round"
+      strokeWidth="2.4"
+    />
+  </svg>
+);
+
+function Stars({ rating }: { rating: number }) {
+  const full = Math.floor(rating);
+  const half = rating - full >= 0.5;
+  return (
+    <div className={styles.rating} role="img" aria-label={`${rating} out of 5 stars`}>
+      {Array.from({ length: full }, (_, i) => (
+        <Star key={i} />
+      ))}
+      {half ? (
+        <span className={styles.half}>
+          <Star />
+        </span>
+      ) : null}
+    </div>
+  );
+}
+
 export default function LetterboxdRecent() {
   const [review, setReview] = React.useState<LetterboxdReview | null>(null);
 
@@ -64,6 +91,11 @@ export default function LetterboxdRecent() {
 
   return (
     <article className={styles.card} style={cardStyle}>
+      <a className={styles.corner} href={review.link} target="_blank" rel="noreferrer" aria-label="Read the full review on Letterboxd">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7 17L17 7M8 7h9v9" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </a>
       {review.imageUrl ? (
         <a className={styles.posterWrap} href={review.link} target="_blank" rel="noreferrer">
           <Image
@@ -81,15 +113,12 @@ export default function LetterboxdRecent() {
         <a className={styles.title} href={review.link} target="_blank" rel="noreferrer">
           {headline}
         </a>
-        {review.ratingStars ? <div className={styles.rating}>{review.ratingStars}</div> : null}
+        {review.rating ? <Stars rating={review.rating} /> : null}
         {review.reviewText ? (
           <p className={styles.review}>
             <span className={styles.reviewClamp}>{review.reviewText}</span>
           </p>
         ) : null}
-        <a className={styles.cta} href={review.link} target="_blank" rel="noreferrer">
-          Read the full review
-        </a>
       </div>
     </article>
   );

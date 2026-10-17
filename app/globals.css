@@ -1,14 +1,11 @@
 :root {
-  --paper: #f5efe5;
-  --ink: #201c18;
-  --ink-soft: #463e37;
-  --accent: #71502d;
-  --border: rgba(26, 26, 26, 0.2);
-  --measure: 70ch;
-  --leading: 1.7;
-  --font-body: var(--font-source-serif), Georgia, serif;
-  --font-heading: var(--font-source-serif), Georgia, serif;
-  --font-display: var(--font-im-fell-english), Georgia, serif;
+  --paper: #ffffff;
+  --ink: #141414;
+  --muted: #6b6b6b;
+  --line: rgba(0, 0, 0, 0.2);
+  --tile: #f2f2f2;
+  --leading: 1.6;
+  --font-body: var(--font-relative-grotesque), -apple-system, "Helvetica Neue", Arial, sans-serif;
 }
 
 * {
@@ -26,24 +23,23 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: var(--font-body);
-  font-weight: 400;
   font-size: 15px;
+  font-weight: 460;
   line-height: var(--leading);
-  letter-spacing: 0;
-  font-optical-sizing: auto;
-  font-feature-settings: "liga" 1, "kern" 1;
   -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
 }
 
 a {
   color: inherit;
-  text-decoration: none;
-  transition: color 160ms ease, text-decoration-color 160ms ease;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  text-decoration-color: var(--line);
+  transition: text-decoration-color 160ms ease;
 }
 
 a:hover {
-  color: #17130f;
+  text-decoration-color: currentColor;
 }
 
 img {
@@ -52,5 +48,5 @@ img {
 }
 
 ::selection {
-  background: rgba(107, 79, 42, 0.2);
+  background: #e5e5e5;
 }

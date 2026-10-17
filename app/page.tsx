@@ -8,7 +8,8 @@ export default function Home() {
     <main className={styles.page}>
       <h1 className={styles.title}>Will Kusch</h1>
 
-      <div className={styles.prose}>
+      <section className={styles.section}>
+        <h2 className={styles.heading}>About</h2>
         <p>
           I&apos;m Will. I build mobile and web apps for consumers and businesses. Lately I&apos;ve been working on{" "}
           <a href="https://onlucra.com" target="_blank" rel="noreferrer">
@@ -24,13 +25,11 @@ export default function Home() {
           </a>
           , and writing movie reviews. Here is my most recent review!
         </p>
-      </div>
-
-      <section className={styles.section}>
         <LetterboxdRecent />
       </section>
 
-      <div className={styles.prose}>
+      <section className={styles.section}>
+        <h2 className={styles.heading}>Lessons</h2>
         <p>
           Things I&apos;ve learned: it&apos;s really easy to just build, build, build, but hard to stop and listen to
           users. What&apos;s the point of building anything if no one is asking for it? Talking to people beats intuition
@@ -45,6 +44,10 @@ export default function Home() {
           </a>
           .
         </p>
+      </section>
+
+      <section className={styles.section}>
+        <h2 className={styles.heading}>Now</h2>
         <p>
           I have a few long-running threads I&apos;m focused on for this year. The biggest is figuring out how to create a
           better creative and brand identity. I&apos;ve been exploring that for a while and it finally feels like I&apos;m
@@ -53,15 +56,13 @@ export default function Home() {
           where my focus lies. If any of that sounds interesting, be a friend and reach out. Oh, and here&apos;s what
           I&apos;m listening to right now.
         </p>
-      </div>
+      </section>
 
       <section className={styles.section}>
+        <h2 className={styles.heading}>Music</h2>
         <div className={styles.embed}>
           <SpotifyRecentEmbed />
         </div>
-      </section>
-
-      <div className={styles.prose}>
         <p>
           I think it makes sense to keep a section here about the music I&apos;m into, so I&apos;m going to. I listen to just
           about every genre under the sun, but lately I&apos;ve mostly been playing London Underground, the{" "}
@@ -94,9 +95,10 @@ export default function Home() {
           </SnapPurchaseLink>
           . That last one will never change.
         </p>
-      </div>
+      </section>
 
-      <div className={`${styles.prose} ${styles.spacedSection}`}>
+      <section className={styles.section}>
+        <h2 className={styles.heading}>Work</h2>
         <p>
           If you&apos;re here to see some of my work, you&apos;re in luck. Here are a few things I&apos;ve built for clients
           and for myself.
@@ -148,10 +150,11 @@ export default function Home() {
           </a>
           , and more.
         </p>
-      </div>
+      </section>
 
-      <div className={styles.spacedSection}>
-        <p className={styles.footerLead}>
+      <section className={styles.section}>
+        <h2 className={styles.heading}>Contact</h2>
+        <p>
           If you somehow made it all the way down here and want to chat, reach me{" "}
           <a href="mailto:will@relativecompanies.com">here</a>. You can also find me on{" "}
           <a href="https://github.com/will4381" target="_blank" rel="noreferrer">
@@ -171,7 +174,7 @@ export default function Home() {
           </a>
           . Goodbye, for now!
         </p>
-      </div>
+      </section>
     </main>
   );
 }

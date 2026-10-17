@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { IM_Fell_English, Source_Serif_4 } from "next/font/google";
+import localFont from "next/font/local";
 import Script from "next/script";
 import "./globals.css";
 
@@ -8,21 +8,13 @@ const title = "Will Kusch";
 const description =
   "Notes, projects, and current work across Lucra, Runes, and more.";
 
-const imFellEnglish = IM_Fell_English({
-  weight: "400",
-  style: ["normal", "italic"],
-  subsets: ["latin"],
+const relativeGrotesque = localFont({
+  src: [
+    { path: "../public/fonts/relative-grotesque/RelativeGrotesque.woff2", weight: "100 900", style: "normal" },
+    { path: "../public/fonts/relative-grotesque/RelativeGrotesque-Italic.woff2", weight: "100 900", style: "italic" },
+  ],
   display: "swap",
-  variable: "--font-im-fell-english",
-});
-
-const sourceSerif = Source_Serif_4({
-  weight: "variable",
-  style: ["normal", "italic"],
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-source-serif",
-  axes: ["opsz"],
+  variable: "--font-relative-grotesque",
 });
 
 export const metadata: Metadata = {
@@ -71,7 +63,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${imFellEnglish.variable} ${sourceSerif.variable}`}>
+    <html lang="en" className={relativeGrotesque.variable}>
       <body>
         {children}
         <Script id="snap-pixel" strategy="afterInteractive">

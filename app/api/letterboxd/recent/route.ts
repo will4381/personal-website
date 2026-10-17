@@ -79,25 +79,16 @@ const getVibrantColor = async (imageUrl: string | null) => {
     if (!imageResponse.ok) return null;
     const buffer = Buffer.from(await imageResponse.arrayBuffer());
     const palette = await Vibrant.from(buffer).getPalette();
-    const swatch =
-      palette.DarkMuted ??
-      palette.Muted ??
-      palette.DarkVibrant ??
-      palette.Vibrant ??
-      palette.LightMuted ??
-      palette.LightVibrant;
-    if (!swatch?.hex) return null;
-    const hex = swatch.hex.replace("#", "");
-    const r = Number.parseInt(hex.slice(0, 2), 16);
-    const g = Number.parseInt(hex.slice(2, 4), 16);
-    const b = Number.parseInt(hex.slice(4, 6), 16);
-    if (![r, g, b].every(Number.isFinite)) return swatch.hex;
-    const darken = (value: number, amount: number) =>
-      Math.max(0, Math.min(255, Math.round(value * (1 - amount))));
-    const dr = darken(r, 0.08);
-    const dg = darken(g, 0.08);
-    const db = darken(b, 0.08);
-    return `rgb(${dr}, ${dg}, ${db})`;
+    // Spotify-style: most common non-pale color, pushed to a rich mid-dark tone
+    const swatch = [palette.Vibrant, palette.DarkVibrant, palette.Muted, palette.DarkMuted]
+      .filter((candidate) => candidate != null)
+      .sort((a, b) => b.population - a.population)[0];
+    if (!swatch) return null;
+    const [h, sat, light] = swatch.hsl;
+    const clamp = (value: number, min: number, max: number) => Math.min(max, Math.max(min, value));
+    const saturation = sat < 0.08 ? sat : clamp(sat, 0.45, 0.7);
+    const lightness = clamp(light, 0.3, 0.38);
+    return `hsl(${Math.round(h * 360)} ${Math.round(saturation * 100)}% ${Math.round(lightness * 100)}%)`;
   } catch {
     return null;
   }

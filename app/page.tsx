@@ -1,4 +1,5 @@
 import LetterboxdRecent from "@/components/LetterboxdRecent";
+import LineSqueeze from "@/components/LineSqueeze";
 import SnapPurchaseLink from "@/components/SnapPurchaseLink";
 import SpotifyRecentEmbed from "@/components/SpotifyRecentEmbed";
 import styles from "./page.module.css";
@@ -175,6 +176,19 @@ export default function Home() {
           . Goodbye, for now!
         </p>
       </section>
+      <LineSqueeze />
+      <EdgeBlur className={styles.blurTop} />
+      <EdgeBlur className={styles.blurBottom} />
     </main>
+  );
+}
+
+function EdgeBlur({ className }: { className: string }) {
+  return (
+    <div className={`${styles.edgeBlur} ${className}`} aria-hidden="true">
+      {Array.from({ length: 6 }, (_, i) => (
+        <div key={i} />
+      ))}
+    </div>
   );
 }

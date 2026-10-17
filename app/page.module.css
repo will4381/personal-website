@@ -51,3 +51,90 @@
   height: 152px;
   border: 0;
 }
+
+/* Progressive edge blur: stacked layers, each blurrier and masked closer to the edge */
+.edgeBlur {
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 96px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.blurTop {
+  top: 0;
+  --dir: to top;
+}
+
+.blurBottom {
+  bottom: 0;
+  height: 120px;
+  --dir: to bottom;
+}
+
+.edgeBlur > div {
+  position: absolute;
+  inset: 0;
+}
+
+.edgeBlur > div:nth-child(1) {
+  backdrop-filter: blur(0.5px);
+  mask-image: linear-gradient(var(--dir), transparent 0%, black 10%, black 30%, transparent 40%);
+}
+
+.edgeBlur > div:nth-child(2) {
+  backdrop-filter: blur(1px);
+  mask-image: linear-gradient(var(--dir), transparent 10%, black 20%, black 40%, transparent 50%);
+}
+
+.edgeBlur > div:nth-child(3) {
+  backdrop-filter: blur(2px);
+  mask-image: linear-gradient(var(--dir), transparent 30%, black 40%, black 60%, transparent 70%);
+}
+
+.edgeBlur > div:nth-child(4) {
+  backdrop-filter: blur(4px);
+  mask-image: linear-gradient(var(--dir), transparent 50%, black 60%, black 80%, transparent 90%);
+}
+
+.edgeBlur > div:nth-child(5) {
+  backdrop-filter: blur(8px);
+  mask-image: linear-gradient(var(--dir), transparent 70%, black 90%);
+}
+
+.edgeBlur > div:nth-child(6) {
+  background: linear-gradient(var(--dir), transparent, rgba(255, 255, 255, 0.5));
+}
+
+/* Edge blurs hide at the very top/bottom of the page so resting content stays sharp.
+   Fade the layers, not the container: opacity on the container would break backdrop-filter. */
+.blurTop > div {
+  opacity: 0;
+}
+
+@supports (animation-timeline: scroll()) {
+  .blurTop > div {
+    animation: fade-in linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0 80px;
+  }
+
+  .blurBottom > div {
+    animation: fade-out linear both;
+    animation-timeline: scroll(root);
+    animation-range: calc(100% - 80px) 100%;
+  }
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in {
+  to {
+    opacity: 1;
+  }
+}

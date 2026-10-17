@@ -50,3 +50,43 @@ img {
 ::selection {
   background: #e5e5e5;
 }
+
+/* Scroll squeeze: content narrows and fades as it slides into the top/bottom edges.
+   Text is split per word by LineSqueeze, so it moves line by line; cards move whole. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .squeeze-word,
+    main section > :not(p):not(h2) {
+      animation:
+        squeeze-in linear both,
+        squeeze-out linear forwards;
+      animation-timeline: view(), view();
+      animation-range:
+        cover 0px cover 100px,
+        cover calc(100% - 100px) cover 100%;
+    }
+
+    .squeeze-word {
+      display: inline-block;
+      transform-origin: var(--ox, 50%) 50%;
+    }
+
+    a > .squeeze-word {
+      text-decoration: inherit;
+    }
+  }
+}
+
+@keyframes squeeze-in {
+  from {
+    transform: scaleX(0.88);
+    opacity: 0.3;
+  }
+}
+
+@keyframes squeeze-out {
+  to {
+    transform: scaleX(0.88);
+    opacity: 0.3;
+  }
+}

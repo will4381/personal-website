@@ -52,23 +52,30 @@ img {
 }
 
 /* Scroll squeeze: content narrows and fades as it slides into the top/bottom edges.
-   Text is split per word by LineSqueeze, so it moves line by line; cards move whole. */
+   Text is split per word by LineSqueeze, so it moves line by line; cards move whole.
+   The top zone is shallow so nothing near the top of the page is squeezed at rest. */
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
     .squeeze-word,
     main section > :not(p):not(h2) {
+      transform-origin: 50% 50%;
       animation:
-        squeeze-in linear both,
-        squeeze-out linear forwards;
+        squeeze-in cubic-bezier(0.2, 0, 0.2, 1) both,
+        squeeze-out cubic-bezier(0.8, 0, 0.8, 1) forwards;
       animation-timeline: view(), view();
       animation-range:
-        cover 0px cover 100px,
-        cover calc(100% - 100px) cover 100%;
+        cover 0px cover 110px,
+        cover calc(100% - 70px) cover 100%;
     }
 
     .squeeze-word {
       display: inline-block;
+      white-space: pre; /* keep the trailing space inside the word box */
       transform-origin: var(--ox, 50%) 50%;
+    }
+
+    .squeeze-glue {
+      white-space: nowrap;
     }
 
     a > .squeeze-word {
@@ -79,14 +86,14 @@ img {
 
 @keyframes squeeze-in {
   from {
-    transform: scaleX(0.88);
-    opacity: 0.3;
+    transform: scaleX(0.82);
+    opacity: 0;
   }
 }
 
 @keyframes squeeze-out {
   to {
-    transform: scaleX(0.88);
-    opacity: 0.3;
+    transform: scaleX(0.82);
+    opacity: 0;
   }
 }

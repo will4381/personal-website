@@ -1,3 +1,4 @@
+import Image from "next/image";
 import LetterboxdRecent from "@/components/LetterboxdRecent";
 import LineSqueeze from "@/components/LineSqueeze";
 import SnapPurchaseLink from "@/components/SnapPurchaseLink";
@@ -7,7 +8,10 @@ import styles from "./page.module.css";
 export default function Home() {
   return (
     <main className={styles.page}>
-      <h1 className={styles.title}>Will Kusch</h1>
+      <div className={styles.nameRow}>
+        <Image className={styles.avatar} src="/avatar.png" alt="" width={56} height={56} priority />
+        <h1 className={styles.title}>Will Kusch</h1>
+      </div>
 
       <section className={styles.section}>
         <h2 className={styles.heading}>About</h2>
